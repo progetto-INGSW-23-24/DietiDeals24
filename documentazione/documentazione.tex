@@ -1,0 +1,41 @@
+\documentclass[]{report}
+
+\input{settings/packages.tex}
+\input{settings/titles_settings.tex}
+\input{settings/page_style.tex}
+\input{settings/commands.tex}
+
+\linespread{1.2} % imposta lo spazio tra le righe
+\fontdimen2\font=0.5em % imposta spazio tra le parole
+
+\title{
+    \includegraphics[width=120pt]{images/logo_universita.pdf}\\
+    Documentazione del software\\
+    {\huge\textbf{DietiDeals24}}
+}
+\author{
+    \begin{tabular}{lllll}
+        Roberto Ingenito              &  & Simone Ingenito               &  & Lorenzo Sequino               \\
+        \multicolumn{1}{c}{N86004077} &  & \multicolumn{1}{c}{N86004063} &  & \multicolumn{1}{c}{N86004367}
+    \end{tabular}
+    }
+\date{Anno accademico 2023/2024}
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\input{settings/table_of_contents.tex}
+
+\newpage
+
+\include{chapters/introduzione}
+\include{chapters/raccolta_e_analisi_dei_requisiti}
+\include{chapters/specifica_dei_requisiti}
+
+\end{document}
+
+

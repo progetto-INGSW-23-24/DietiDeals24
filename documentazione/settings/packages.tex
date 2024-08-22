@@ -1,0 +1,27 @@
+\usepackage[a4paper, left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm]{geometry} % imposta le dimensioni della pagina
+\usepackage{multicol}
+\usepackage{tocloft}
+\usepackage[]{lipsum}
+
+\usepackage{hyperref} % permette agli hypertext di essere cliccabili
+\hypersetup{
+    pdftitle={Titolo PDF},
+    pdfauthor={Autore PDF},
+    colorlinks,
+    linkcolor=black,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue
+}
+
+\usepackage{enumitem}
+\setlist[itemize,enumerate]{
+    topsep=0pt,
+    itemsep=0pt,
+    leftmargin=20pt
+}
+
+\usepackage{graphicx}
+\usepackage{array}  % Per il padding
+\usepackage{lipsum} % Per testo di esempio
+\usepackage{enumitem} % Per l'itemize senza margini extra
