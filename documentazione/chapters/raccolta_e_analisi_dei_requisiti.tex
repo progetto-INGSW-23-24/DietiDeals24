@@ -28,27 +28,31 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 		      \item link ai propri social
 	      \end{itemize}
 	      \medskip
-	\item l'utente può creare un asta all'inglese
+	\item l'utente può creare un'asta
 	      \begin{itemize}[label={\tiny$\blacksquare$}]
-		      \item il venditore inserisce una base d'asta (visibile a tutti)
-		      \item ***(dubbio colloquio 3)*** L'asta include un intervallo di tempo fisso per presentare nuove offerte (di default 1 ora)
-		      \item ***(dubbio colloquio 3)*** L'asta include una soglia di rialzo (di default 10€)
-	      \end{itemize}
-	\item l'utente può creare un asta al ribasso
-	      \begin{itemize}[label={\tiny$\blacksquare$}]
-		      \item il venditore inserisce:
+		      \item inserisce la foto
+		      \item inserisce la descrizione
+		      \item inserisce la categoria
+		      \item asta all'inglese
+		            \begin{itemize}[label={\tiny$-$}]
+			            \item il venditore inserisce una base d'asta (visibile a tutti)
+			            \item ***(dubbio colloquio 3)*** L'asta include un intervallo di tempo fisso per presentare nuove offerte (di default 1 ora)
+			            \item ***(dubbio colloquio 3)*** L'asta include una soglia di rialzo (di default 10€)
+		            \end{itemize}
+		      \item l'utente può creare un asta al ribasso e inserisce:
 		            \begin{itemize}[label={\tiny$-$}]
 			            \item un prezzo iniziale
 			            \item la durata del timer per il decremento del prezzo (di default 1 ora).
 			            \item l'importo per ciascun decremento
 			            \item il prezzo minimo segreto (non visibili pubblicamente).
 		            \end{itemize}
+		      \item l'utente può creare un asta silenziosa
+		            \begin{itemize}[label={\tiny$-$}]
+			            \item inserisce data e ora di scadenza
+			            \item può accettare un'offerta
+		            \end{itemize}
 	      \end{itemize}
-	\item l'utente può creare un asta silenziosa
-	      \begin{itemize}[label={\tiny$\blacksquare$}]
-		      \item il venditore inserisce una data di scadenza
-		      \item il venditore sceglie se accettare o meno le offerte ricevute
-	      \end{itemize}
+
 	      \medskip
 	\item l'utente può presentare un'offerta (per qualsiasi tipo d'asta) \medskip
 
@@ -145,46 +149,108 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 
 	\begin{tabular}{|l|p{330pt}|}
 		\hline
-		\textbf{Attore}               & \textbf{Casi d'uso}                                        \\ \hline
-		Utente non loggato            & \begin{itemize}[leftmargin=15pt]
-			                                \setlength{\itemsep}{0pt}  % Riduce lo spazio tra gli elementi della lista
-			                                \setlength{\parskip}{0pt}  % Riduce lo spazio tra i paragrafi
-			                                \item registrazione con email
-			                                \item registrazione con credenziali di terze parti (Google)
-			                                \item Accesso al sistema
-		                                \end{itemize} \\ \hline
-		Utente (venditore/acquirente) &
+		\textbf{Attore}    & \textbf{Casi d'uso}                                        \\ \hline
+		Utente non loggato & \begin{itemize}[leftmargin=15pt]
+			                     \setlength{\itemsep}{0pt}  % Riduce lo spazio tra gli elementi della lista
+			                     \setlength{\parskip}{0pt}  % Riduce lo spazio tra i paragrafi
+			                     \item registrazione con email
+			                     \item registrazione con credenziali di terze parti (Google)
+			                     \item Accesso al sistema
+		                     \end{itemize} \\ \hline
+		\makecell{Utente non loggato                                                    \\ (venditore/acquirente)} &
 		\begin{itemize}[leftmargin=15pt]
 			\setlength{\itemsep}{0pt}  % Riduce lo spazio tra gli elementi della lista
 			\setlength{\parskip}{0pt}  % Riduce lo spazio tra i paragrafi
-			\item Personalizzazione del profilo
-			\item Visualizzazione storico aste create (in corso e concluse)
-			\item Visualizzazione storico a cui hai partecipato (in corso e concluse)
+			\item Personalizza il profilo
+			\item Visualizza storico
+			      \begin{itemize}
+				      \item aste create (in corso e concluse)
+				      \item a cui hai partecipato (in corso e concluse)
+			      \end{itemize}
 			\item Ricerca asta per parola chiave
-			\item Filtraggio asta per categoria
-			\item Visualizzare dettagli di un'asta
-			\item Visualizzare il profilo del venditore
+			\item Filtra asta per categoria
+			\item Visualizza dettagli di un'asta
+			\item Visualizza il profilo del venditore
 
 		\end{itemize}\medskip
 		\begin{itemize}[leftmargin=15pt]
 			\setlength{\itemsep}{0pt}  % Riduce lo spazio tra gli elementi della lista
 			\setlength{\parskip}{0pt}  % Riduce lo spazio tra i paragrafi
-			\item Creare asta all'inglese
-			\item Creare asta al ribasso
-			\item Creare asta silenziosa
+			\item Crea asta
+			      \begin{itemize}
+				      \item all'inglese
+				      \item al ribasso
+				      \item silenziosa
+			      \end{itemize}
 		\end{itemize}\medskip
 		\begin{itemize}[leftmargin=15pt]
 			\setlength{\itemsep}{0pt}  % Riduce lo spazio tra gli elementi della lista
 			\setlength{\parskip}{0pt}  % Riduce lo spazio tra i paragrafi
-			\item Piazzare un'offerta per l'asta all'inglese
-			\item Piazzare un'offerta per l'asta al ribasso
-			\item Piazzare un'offerta per l'asta silenziosa
-		\end{itemize}                                \\ \hline
+			\item Piazza un'offerta
+			      \begin{itemize}
+				      \item per l'asta all'inglese
+				      \item per l'asta al ribasso
+				      \item per l'asta silenziosa
+			      \end{itemize}
+		\end{itemize}                     \\ \hline
 	\end{tabular}
 }
 
 \subsection{Descrizioni dettagliate}
+\begin{itemize}
+	\item \textbf{Registrazione con email.}\\
+	      L'utente che desidera registrarsi, può farlo inserendo dati quali: email, nome, cognome e password. I dati inseriti sono soggetti a verifica da parte del sistema (ad esempio: la mail deve essere in un formato valido).
+
+	      Una volta effettuata la registrazione, se questa ha avuto successo, l'utente accede al sistema.
+
+	\item \textbf{Registrazione con credenziali di terze parti (Google).}\\
+	      L'utente può registrarsi più utilizzando il proprio account Google. Una volta effettuata la registrazione, se questa ha avuto successo, l'utente accede al sistema.
+
+	\item \textbf{Accesso al sistema.}\\
+	      L'utente che ha già effettuato la registrazione in precedenza può accedere al sistema utilizzando la mail con la quale si è registrato e la propria password.
+
+	\item \textbf{Personalizzazione del profilo.}\\
+	      Andando nella sezione “Profilo”, l'utente può visualizzare le proprie informazioni e modificarle. Può aggiungere informazioni quali: bio, link al proprio sito personale, link ai social ed area geografica.
+
+	\item \textbf{Visualizzazione storico aste create (in corso e concluse).}\\
+	      Andando nella sezione “Storico Aste”, l'utente può visualizzare sia le aste a cui ha preso parte (quelle in corso per cui ha piazzato un'offerta, e quelle concluse) sia le aste che ha creato (in corso e concluse).
+
+	\item \textbf{Ricerca aste per parola chiave.}\\
+	      Nella homepage l'utente può selezionare la barra di ricerca e inserire delle parole chiave per filtrare le aste per descrizione, in modo da trovare più velocemente ciò a cui è interessato.
+
+	      \textit{Nota: Se anche il filtraggio per categoria è attivato, la ricerca viene raffinata ulteriormente (parola chiave + categoria).}
+
+	\item \textbf{Filtraggio aste per categoria.}\\
+	      Nella homepage l'utente può selezionare dei pulsanti per filtrare le aste visualizzate per categoria.
+
+	\item \textbf{Visualizza dettagli di un'asta.}\\
+	      L'utente interessato ad un'asta può cliccarla per accedere alla pagina di dettaglio e visualizzare tutte le informazioni di cui ha bisogno. Da questa schermata è anche possibile fare un'offerta (se l'asta è ancora in corso) e visualizzare il profilo del venditore.
+
+	\item \textbf{Visualizza il profilo del venditore.}\\
+	      L'utente che sta visualizzando un'asta può cliccare sul nome del venditore per visualizzare la pagina profilo del venditore.
+
+	\item \textbf{Creare asta all'inglese.}\\
+	      Dalla schermata home, l'utente clicca sul pulsante “Crea Asta”, poi clicca sul pulsante "Asta all'inglese". Viene visualizzata una nuova schermata in cui deve inserire tutte le informazioni necessarie tra cui: immagine, descrizione, categoria, base d'asta, soglia di rialzo e il timer.
+
+	\item \textbf{Creare asta al ribasso.}\\
+	      Dalla schermata home, l'utente clicca sul pulsante “Crea Asta”, poi clicca sul pulsante "Asta al ribasso". Viene visualizzata una nuova schermata in cui deve inserire tutte le informazioni necessarie tra cui: immagine, descrizione, categoria, prezzo iniziale, prezzo minimo, importo di cui decrementare, timer prima di un decremento.
+
+	\item \textbf{Creare asta silenziosa.}\\
+	      Dalla schermata home, l'utente clicca sul pulsante “Crea Asta”, poi clicca sul pulsante "Asta silenziosa". Viene visualizzata una nuova schermata in cui deve inserire tutte le informazioni necessarie tra cui: immagine, descrizione, categoria, scadenza.
+
+	\item \textbf{Piazzare un'offerta per l'asta all'inglese.}\\
+	      L'utente che si trova sulla schermata di un'asta all'inglese inserisce l'importo dell'offerta che vuole piazzare, poi clicca sul pulsante "conferma offerta".
+
+	\item \textbf{Piazzare un'offerta per l'asta al ribasso.}\\
+	      L'utente che si trova sulla schermata di un'asta al ribasso può cliccare il pulsante “Acquista” ed aggiudicarsi automaticamente l'asta. Dopo quest'operazione il sistema mostra una notifica che informa l'utente dell'esito dell'asta.
+
+	\item \textbf{Piazzare un'offerta per l'asta silenziosa.}\\
+	      L'utente che si trova sulla schermata di un'asta silenziosa può inserire un'offerta e cliccare sul pulsante "conferma offerta" per inviare l'offerta.
+\end{itemize}
+
+\newpage
 \subsection{Diagrammi}
+\includegraphics[width=.7\textwidth]{images/utente_non_loggato_use_case_diagram.pdf}
 
 \newpage
 \section{Tabelle di Cockburn}
