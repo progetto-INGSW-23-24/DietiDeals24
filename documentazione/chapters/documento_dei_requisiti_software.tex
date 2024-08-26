@@ -1,4 +1,4 @@
-\chapter{Raccolta e analisi dei requisiti}
+\chapter{Documento dei requisiti software}
 
 \section{Obiettivi della Raccolta dei Requisiti}
 % Descrizione: Spiega l'importanza della raccolta dei requisiti e come è stata condotta (interviste, workshop, analisi documentale).
@@ -13,6 +13,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \end{itemize}
 
 \newpage
+
 \section{Requisiti individuati}
 \subsection{Requisiti funzionali}
 \begin{itemize}
@@ -140,6 +141,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \end{itemize}
 
 \newpage
+
 \section{Modello dei casi d'uso}
 \subsection{Tabella}
 
@@ -247,6 +249,10 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 
 	\item \textbf{Piazzare un'offerta per l'asta silenziosa.}\\
 	      L'utente che si trova sulla schermata di un'asta silenziosa può inserire un'offerta e cliccare sul pulsante "conferma offerta" per inviare l'offerta.
+
+	\item \textbf{Accetta un'offerta di un'asta silenziosa.}\\
+	      L'utente che ha creato un'asta silenziosa, può andare nello storico delle aste create, selezionare un'asta in corso e accettare un'offerta.
+
 \end{itemize}
 
 \newpage
@@ -256,6 +262,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \includegraphics[width=.63\textwidth]{images/utente_loggato_use_case.pdf}
 
 \newpage
+
 \section{Tabelle di Cockburn}
 \subsection{Creazione asta silenziosa}
 \begin{table}[H]
@@ -369,8 +376,8 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 		\cline{2-4}                                        & 5                                                                                                        & L'utente visualizza le aste che ha creato e riconosce quelle attive grazie a un riquadro blu in alto a destra con la dicitura "in corso" &                                              \\
 
 		\hline \rowcolor[HTML]{DCDCDC}
-		\multirow{1}{*}{}{\textbf{\sffamily Extensions}}   & \textbf{\sffamily Step}                                                                                  & \textbf{\sffamily User Action}                                                                                                           & \textbf{\sffamily System}                    \\
-		\cline{2-4}                                        &                                                                                                          &                                                                                                                                          &                                              \\
+		\textbf{\sffamily Extensions}                      & \textbf{\sffamily Step}                                                                                  & \textbf{\sffamily User Action}                                                                                                           & \textbf{\sffamily System}                    \\
+		\hline\multirow{1}{*}{}{L'utente non ha ancora creato aste}          & 4.a  &  & Mostra il messaggio "Non hai ancora creato nessun'asta"  \\
 
 		\hline
 	\end{tabularx}
@@ -379,3 +386,10 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \newpage
 
 \section{Mockup del Software}
+
+\section{Individuazione del target degli utenti.}
+
+\section{Valutazione dell'usabilità a priori}
+
+\section{Specifica dei requisiti}
+

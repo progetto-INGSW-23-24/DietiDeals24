@@ -9,3 +9,7 @@
 *.txt
 *.gz
 *.Identifier
+*.glg
+*.glo
+*.gls
+*.ist

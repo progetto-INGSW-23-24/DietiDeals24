@@ -14,6 +14,12 @@
     \thispagestyle{empty}
     % \newpage
 }
+% Comando personalizzato per stampare il glossario con il vecchio comportamento di \chapter
+\newcommand{\printglossarywithchapter}{
+    {\let\clearpage\relax\let\chapter\oldchapter\vspace{-15em}\printglossary}
+}
+
+
 \let\oldsection\section
 \renewcommand{\section}[1]{
     % \newpage

@@ -1,3 +1,5 @@
+% xelatex documentazione.tex; makeglossaries documentazione; xelatex documentazione.tex 
+
 \documentclass[]{report}
 
 \input{settings/packages.tex}
@@ -22,6 +24,7 @@
     }
 \date{Anno accademico 2023/2024}
 
+\input{glossaries.tex}
 
 \begin{document}
 
@@ -34,8 +37,13 @@
 \newpage
 
 \include{chapters/introduzione}
-\include{chapters/raccolta_e_analisi_dei_requisiti}
-\include{chapters/specifica_dei_requisiti}
+\include{chapters/documento_dei_requisiti_software}
+
+\clearpage
+\chapter{Glossario}
+\printglossarywithchapter
+
+
 
 \end{document}
 
