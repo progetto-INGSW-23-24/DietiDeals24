@@ -386,14 +386,33 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \newpage
 
 \section{Mockup del Software}
+I mock-up sono stati progettati con Figma. Di seguito viene riportata la lista completa dei prototipi realizzati.
+
+\subsection{Accesso e registrazione}
+Il primo mockup mostra la schermata di accesso dov'è possibile accedere con email e password oppure tramite google.
+Inoltre, è presente un pulsante per navigare alla pagina di registrazione.\sskip
+Il secondo mockup mostra la schermata di registrazione dove l'utente compilerà i vari campi e premere il pulsante "Registrati" per confermare la registrazione.
+Inoltre, è presente un pulsante per navigare alla pagina di accesso.
+\begin{center}
+	\begin{tabular}{cc}
+		Accesso                                                          &
+		Registrazione                                                          \\
+		\includegraphics[width=.35\textwidth]{images/mockup/Accesso.png} &
+		\includegraphics[width=.35\textwidth]{images/mockup/Registrazione.png} \\
+	\end{tabular}
+\end{center}
+
+
 
 \newpage
+
 \section{Individuazione del target degli utenti.}
 L'identificazione del target degli utenti è cruciale per garantire che l'applicazione soddisfi le esigenze e le aspettative dei suoi utilizzatori.
 
 \subsection*{Descrizione del Servizio}
 DietiDeals24 è un'applicazione progettata per facilitare la compravendita di beni e servizi tramite aste online.
-Grazie a questa piattaforma, gli utenti possono partecipare a aste in tempo reale e avere l'opportunità di acquistare prodotti e servizi a prezzi vantaggiosi.
+Grazie a questa piattaforma, gli utenti possono partecipare a aste in tempo reale e avere l'opportunità di acquistare prodotti e servizi a prezzi vantaggiosi.\sskip
+Di fatto l'applicazione si configura all'interno del settore e-commerce e questo ci ha permesso di fare analisi sul target degli utenti.
 
 \subsection*{Target Demografici}
 \begin{itemize}
@@ -418,11 +437,47 @@ Gli utenti che acquistano online tramite un servizio di aste solitamente cercano
 \end{itemize}
 
 \subsection*{Fonti}
-Statista, "E-commerce user demographics in 2023," disponibile su \url{www.statista.com} .\\
+Statista, "E-commerce user demographics in 2023", disponibile su \url{www.statista.com} .\\
 Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerce360.com} .
 
-
-
 \section{Valutazione dell'usabilità a priori}
+\subsection{Euristiche di Nielsen}
+\begin{enumerate}
+	\item \textbf{\sffamily Visibilità dello stato del sistema} \\
+	      L'applicazione dovrebbe sempre tenere gli utenti informati su cosa sta succedendo, fornendo dei feedback immediati a seguito di un'azione.
+
+	      Ad esempio, quando un utente effettua un'offerta, il sistema deve fornire un messaggio di conferma.
+
+	\item \textbf{\sffamily Corrispondenza tra il sistema e il mondo reale} \\
+	      L'applicazione dovrebbe utilizzare un linguaggio semplice, con termini che gli utenti comprendono facilmente, evitando il termini tecnici.
+	      Ad esempio, i termini usati per descrivere le azioni come "Conferma offerta", "Modifica profilo"; oppure i messaggi di conferma come "Offerta confermata"/"Offerta rifiutata"
+
+	\item \textbf{\sffamily Controllo dell'utente e libertà} \\
+	      Gli utenti spesso commettono errori e dovrebbero essere in grado di annullare facilmente le azioni indesiderate.
+
+	\item \textbf{\sffamily Coerenza e standard} \\
+	      L'interfaccia dell'applicazione dovrebbe essere coerente in tutte le sue sezioni, sia in termini di design che di funzionalità.
+	      Ad esempio i pulsanti, i colori e le azioni devono avere lo stesso significato in tutte le schermate.
+
+	\item \textbf{\sffamily Prevenzione degli errori} \\
+	      L'app dovrebbe prevenire gli errori rendendo difficile per gli utenti fare scelte sbagliate. È meglio progettare l'interfaccia in modo da evitare che gli errori accadano, piuttosto che fornire messaggi di errore.
+
+	\item \textbf{\sffamily Riconoscimento piuttosto che ricordo} \\
+	      Ridurre al minimo la quantità di informazioni che l'utente deve ricordare durante la navigazione.
+	      Ad esempio, fornendo suggerimenti durante l'uso dell'app per agevolare l'interazione dell'utente.
+
+	\item \textbf{\sffamily Flessibilità ed Efficienza} \\
+	      L'app dovrebbe essere utilizzabile sia da utenti principianti che esperti.
+
+	\item \textbf{\sffamily Design Estetico e Minimalista} \\
+	      Le informazioni e le opzioni inutili dovrebbero essere eliminate.
+	      Ogni elemento dell'interfaccia dovrebbe avere uno scopo chiaro.
+
+	\item \textbf{\sffamily Aiuto e Documentazione} \\
+	      L'applicazione dovrebbe essere facile da usare senza documentazione, dovrebbe esserci comunque un aiuto disponibile per gli utenti che lo richiedono.
+
+	\item \textbf{\sffamily Gestione degli Errori} \\
+	      Se si verificano errori, il sistema dovrebbe presentare messaggi d'errore chiari e non codici d'errore.
+\end{enumerate}
 
 \section{Specifica dei requisiti}
