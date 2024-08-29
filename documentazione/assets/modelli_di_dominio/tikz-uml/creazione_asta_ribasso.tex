@@ -1,5 +1,5 @@
 \begin{center}
-	\scalebox{0.68}{
+	\scalebox{0.67}{
 		\begin{tikzpicture}
 			\umlclass[type=Boundary, x=9, y=0]{CreateAuction}{
 				+ descendingAuctionButton: Button \\
@@ -7,13 +7,13 @@
 				+ silentAuctionButton: Button \\
 			}{}
 
-			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=1cm]{CreateEnglishAuction}{
+			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=1.5cm]{CreateEnglishAuction}{
 			}{}
 			
-			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=-2cm]{CreateSilentAuction}{
+			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=-1.5cm]{CreateSilentAuction}{
 			}{}
 
-			\umlclass[type=Boundary, right=3cm of CreateAuction]{NavBar}{
+			\umlclass[type=Boundary, right=3cm of CreateAuction, yshift=1cm]{NavBar}{
 				+ createAuctionButton: Button
 			}{}
 
