@@ -1,0 +1,82 @@
+\begin{center}
+	\scalebox{0.67}{
+		\begin{tikzpicture}
+			\umlclass[type=Boundary, x=9, y=-4]{CreateAuction}{
+				+ descendingAuctionButton: Button \\
+				+ englishAuctionButton: Button \\
+				+ silentAuctionButton: Button \\
+			}{}
+
+			\umlclass[type=Boundary, x=0, y=-3]{CreateDescendingAuction}{
+			}{}
+
+			\umlclass[type=Boundary, x=3, y=0]{CreateSilentAuction}{
+			}{}
+
+			\umlclass[type=Boundary, x=14, y=0]{NavBar}{
+				+ createAuctionButton: Button
+			}{}
+
+			\umlclass[type=Boundary, below=1cm of CreateAuction]{CreateEnglishAuction}{
+				+ loadImageButton: Button \\
+				+ descriptionTextField: TextField \\
+				+ categorySelect: Select \\
+				+ startingPriceTextField: TextField \\
+				+ increaseThresholdTextField: TextField \\
+				+ timerTextField: TextField \\
+				+ publishButton: Button \\
+			}{}
+
+			\umlclass[type=Control, below=1cm of CreateEnglishAuction]{CreateAuctionController}{}{
+				+ createEnglishAuction(image, description, category, startingPrice, increaseThreshold, timer) \\
+				+ createDescendingAuction() \\
+				+ createSilentAuction()
+			}
+
+			\umlclass[type=Boundary, right=1cm of CreateAuctionController, yshift=4cm]{Feedback}{
+				+ message: String
+			}{}
+
+			\umlclass[type=Entity, below=1cm of CreateAuctionController]{EnglishAuction}{
+				+ startingPrice: double \\
+				+ increaseThreshold: double \\
+				+ timer: int \\
+			}{}
+
+			\umlclass[type=Entity, below=1cm of EnglishAuction]{Auction}{
+				+ description: String \\
+				+ imagePath: String \\
+				+ category: String \\
+			}{}
+
+			\umlclass[type=Entity, left=3cm of Auction, yshift=4cm]{DescendingAuction}{
+			}{}
+			\umlclass[type=Entity, left=5cm of Auction, yshift=1cm]{SilentAuction}{
+			}{}
+
+			\umlclass[below=1.5cm of Auction, type=Entity]{User}{
+				+ firstName: String \\
+				+ lastName: String \\
+				+ email: String \\
+				+ password: String \\
+				+ bio: String \\
+				+ webSiteLink: String \\
+				+ profileImagePath: String \\
+				+ socialLink: String[] \\
+			}{}
+
+			% Relationships
+			\umlassoc{CreateAuction}{CreateDescendingAuction}
+			\umlassoc{CreateAuction}{CreateSilentAuction}
+			\umlassoc{CreateAuction}{NavBar}
+			\umlassoc{CreateAuction}{CreateEnglishAuction}
+			\umlassoc{CreateEnglishAuction}{CreateAuctionController}
+			\umlassoc{CreateAuctionController}{Feedback}
+			\umlassoc{CreateAuctionController}{EnglishAuction}
+			\umlinherit{SilentAuction}{Auction}
+			\umlinherit{EnglishAuction}{Auction}
+			\umlinherit{DescendingAuction}{Auction}
+			\umlassoc[mult2=1, mult1=0..*]{Auction}{User}
+		\end{tikzpicture}
+	}
+\end{center}

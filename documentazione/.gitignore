@@ -13,3 +13,5 @@
 *.glo
 *.gls
 *.ist
+assets/modelli_di_dominio/tikz-uml/template.pdf
+tikz-uml-test/**

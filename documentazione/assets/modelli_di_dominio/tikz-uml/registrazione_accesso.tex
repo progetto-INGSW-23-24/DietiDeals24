@@ -1,0 +1,51 @@
+\begin{center}
+	\scalebox{0.7}{
+		\begin{tikzpicture}
+			\umlclass[x=0, y=0, type=Boundary]{SignUpForm}{
+				+ firstName: TextField\\
+				+ lastName: TextField\\
+				+ email: TextField\\
+				+ password: TextField\\
+				+ goToSignInPage: Button\\
+				+ signUp: Button\\
+			}{}
+
+			\umlclass[x=10, y=0, type=Boundary]{SignInForm}{
+				+ email: TextField\\
+				+ password: TextField\\
+				+ signIn: Button\\
+				+ goToSignUpPage: Button\\
+				+ signInWithGoogle: Button\\
+			}{}
+			\umlclass[x=5, y=-5, type=Boundary]{Feedback}{
+				+ message: String \\
+			}{}
+			\umlclass[x=0, y=-9, type=Control]{SignUpController}{}{
+				+ signUp(firstName, lastName, email, password)
+			}
+			\umlclass[x=10, y=-9, type=Control]{SignInController}{}{
+				+ signIn(email, password)\\
+				+ signInWithGoogle()
+			}
+			\umlclass[x=5, y=-15, type=Entity]{User}{
+				+ firstName: String \\
+				+ lastName: String \\
+				+ email: String \\
+				+ password: String \\
+				+ bio: String \\
+				+ webSiteLink: String \\
+				+ profileImagePath: String \\
+				+ socialLink: String[] \\
+			}{}
+
+			% Relationships
+			\umlassoc{SignUpForm}{SignInForm}
+			\umlassoc{SignUpForm}{SignUpController}
+			\umlassoc{SignInForm}{SignInController}
+			\umlassoc{SignUpController}{User}
+			\umlassoc{SignInController}{User}
+			\umlassoc{SignUpController}{Feedback}
+			\umlassoc{SignInController}{Feedback}
+		\end{tikzpicture}
+	}
+\end{center}

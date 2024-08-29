@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{tikz-uml}
+
+\begin{document}\noindent
+\begin{tikzpicture}
+	% Interface class
+	\umlclass[x=0, y=0, type=Entity]{MyEntity}{
+		+method1(): void \\
+		+method2(): int
+	}{}
+
+	% Boundary class
+	\umlclass[x=5, y=0, type=Boundary]{MyBoundary}{
+		-attribute1: String \\
+		-attribute2: int
+	}{
+		+operation1(): void
+	}
+
+	% Control class
+	\umlclass[x=2.5, y=-4, type=Control]{MyControl}{
+		-state : int
+	}{
+		+process(): void \\
+		+execute(): boolean
+	}
+
+	% Control class
+	\umlclass[x=8, y=-4, type=Control]{MyControl2}{
+		-state : int
+	}{
+		+process(): void \\
+		+execute(): boolean
+	}
+
+	% Control class
+	\umlclass[x=2.5, y=-8, type=Control]{MyControl3}{
+		-state : int
+	}{
+		+process(): void \\
+		+execute(): boolean
+	}
+
+	% Relationships
+	\umlimpl{MyControl}{MyEntity}
+	\umlcompo{MyBoundary}{MyControl}
+	\umlaggreg{MyControl}{MyControl2}
+	\umlassoc{MyControl}{MyControl3}
+	\umldep{MyEntity}{MyBoundary}
+	\umlinherit[mult1=1..1, mult2=0..*, pos1=0, pos2=0.6]{MyControl2}{MyBoundary}
+\end{tikzpicture}
+
+\end{document}
