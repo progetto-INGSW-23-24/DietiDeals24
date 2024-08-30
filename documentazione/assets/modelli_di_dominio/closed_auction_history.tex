@@ -41,7 +41,7 @@
 				+ sellerProfilePageButton: Button \\
 			}{}
 
-			\umlclass[right=2cm of AuctionDetailPage, type=Boundary]{ClosedAuctionDetailPage}{
+			\umlclass[right=2cm of AuctionDetailPage, type=Boundary]{CreatedAuctionDetailPage}{
 				+ buyerFullName: Text \\
 				+ offerAmount: Text \\
 				+ buyerImage: Image \\
@@ -87,7 +87,7 @@
 			\umlassoc{AuctionDetailPage}{HistoryAuctionsController}
 			\umlassoc{HistoryAuctionsController}{Auction}
 			\umlassoc[mult1=0..*, mult2=1]{Auction}{User}
-			\umlinherit{ClosedAuctionDetailPage}{AuctionDetailPage}
+			\umlinherit{CreatedAuctionDetailPage}{AuctionDetailPage}
 			\umlinherit{PurchasedAuctionDetailPage}{AuctionDetailPage}
 
 		\end{tikzpicture}
