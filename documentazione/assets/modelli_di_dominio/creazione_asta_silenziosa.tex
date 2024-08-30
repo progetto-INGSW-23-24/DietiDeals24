@@ -13,8 +13,11 @@
 			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=-1.5cm]{CreateEnglishAuction}{
 			}{}
 
-			\umlclass[type=Boundary, right=3cm of CreateAuction, yshift=1cm]{NavBar}{
-				+ createAuctionButton: Button
+			\umlclass[type=Boundary, right=2.5cm of CreateAuction, yshift=1cm]{NavBar}{
+				+ createAuctionPageButton: Button\\
+				+ homePageButton: Button\\
+				+ auctionHistoryPageButton: Button\\
+				+ profilePageButton: Button\\
 			}{}
 
 			\umlclass[type=Boundary, below=1cm of CreateAuction]{CreateSilentAuction}{

@@ -1,0 +1,98 @@
+\begin{center}
+	\scalebox{0.7}{
+		\begin{tikzpicture}
+			\umlclass[type=Boundary]{AuctionDetailPage}{
+			}{}
+
+			\umlclass[above=3.5cm of AuctionDetailPage, xshift=4cm, type=Boundary]{SilentAuctionDetailPage}{
+			}{}
+
+			\umlclass[above=3.5cm of AuctionDetailPage, xshift=-4cm, type=Boundary]{DescendingAuctionDetailPage}{
+			}{}
+
+			\umlclass[right=2cm of AuctionDetailPage, type=Boundary]{EnglishAuctionDetailPage}{
+				+ sellerProfileImage: Image \\
+				+ sellerFullNameLabel: Text \\
+				+ productImage: Image \\
+				+ productDescriptionLabel: Text \\
+				+ productExpirationLabel: Text \\
+				+ lastOfferLabel: Text \\
+				+ offerTextField: TextField \\
+				+ confirmOfferButton: Button \\
+				+ showSellerProfilePageButton: Button \\
+			}{}
+
+			\umlclass[left=1.5cm of AuctionDetailPage, type=Boundary]{AuctionPage}{
+				+ goToDetailPageButton: Button
+			}{}
+
+			\umlclass[above=1.5cm of AuctionPage, xshift=-4cm, type=Boundary]{HomePage}{
+			}{}
+
+			\umlclass[below=3cm of AuctionDetailPage, type=Control]{AuctionOfferController}{}{
+				+ createEnglishAuctionOffer(amount: double) \\
+				+ createSilentAuctionOffer() \\
+				+ createDescendingAuctionOffer() \\
+				+ showSellerProfilePage() \\
+			}
+
+			\umlclass[right=1.5cm of AuctionOfferController,type=Boundary]{Feedback}{
+				+ message: String \\
+			}{}
+
+			\umlclass[below=1.5cm of AuctionOfferController, type=Entity]{EnglishAuction}{
+				+ startingPrice: double \\
+				+ increaseThreshold: double \\
+				+ timer: int \\
+			}{}
+
+			\umlclass[below=1.5cm of EnglishAuction, type=Entity]{EnglishAuctionOffer}{
+				+ price: double \\
+			}{}
+
+			\umlclass[below=1.5cm of EnglishAuctionOffer, type=Entity]{User}{
+				+ firstName: String \\
+				+ lastName: String \\
+				+ email: String \\
+				+ password: String \\
+				+ bio: String \\
+				+ webSiteLink: String \\
+				+ profileImagePath: String \\
+				+ socialLink: String[] \\
+			}{}
+
+			\umlclass[left=2.5cm of EnglishAuction, type=Entity]{Auction}{
+				+ description: String \\
+				+ imagePath: String \\
+				+ category: String \\
+			}{}
+
+			\umlclass[below=1.5cm of Auction, xshift=-2.5cm, type=Entity]{DescendingAuction}{
+			}{}
+
+			\umlclass[below=1.5cm of Auction, xshift=2.5cm, type=Entity]{SilentAuction}{
+			}{}
+
+
+
+			\umlinherit{SilentAuctionDetailPage}{AuctionDetailPage}
+			\umlinherit{DescendingAuctionDetailPage}{AuctionDetailPage}
+			\umlinherit{EnglishAuctionDetailPage}{AuctionDetailPage}
+
+			\umlinherit{DescendingAuction}{Auction}
+			\umlinherit{EnglishAuction}{Auction}
+			\umlinherit{SilentAuction}{Auction}
+
+			\umlassoc[mult1=1, mult2=0..1]{User}{EnglishAuctionOffer}
+			\umlassoc[mult2=1, mult1=0..*]{EnglishAuctionOffer}{EnglishAuction}
+			\umlassoc{EnglishAuction}{AuctionOfferController}
+			\umlassoc{AuctionOfferController}{Feedback}
+			\umlassoc{AuctionOfferController}{AuctionDetailPage}
+			\umlassoc{AuctionDetailPage}{AuctionPage}
+
+			\umlaggreg{HomePage}{AuctionPage}
+
+
+		\end{tikzpicture}
+	}
+\end{center}

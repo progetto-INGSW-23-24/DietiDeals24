@@ -430,6 +430,25 @@ L'interfaccia è progettata per essere intuitiva e facilmente navigabile, permet
 \end{center}
 
 \newpage
+\subsection{Storico aste - pagine di dettaglio}
+Facendo click su un'asta, nella pagina dello storico delle aste, verrà mostrato uno dei seguenti mockup in base alla condizione dell'asta (in corso / terminata).\meskip
+Il primo mockup mostra la pagina di dettaglio di un'asta acquistata, in corso oppure terminata.\meskip
+Il secondo mockup mostra la pagina di dettaglio di un'asta venduta, quindi terminata.\meskip
+Il terzo mockup mostra la pagina di dettaglio di un'asta silenziosa ancora in corso, dov'è possibile accettare una tra le offerte presentate.
+
+\bigskip
+\begin{center}
+	\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+		Dettagli asta acquistata                                                                          &
+		Dettagli asta venduta (terminata)                                                                 &
+		Dettagli asta silenziosa \qquad (in corso)                                                                      \\
+		\includegraphics[width=.3\textwidth]{assets/mockup/Storico aste - acquistate - Dettagli asta.png} &
+		\includegraphics[width=.3\textwidth]{assets/mockup/Storico aste - create - terminata.png}         &
+		\includegraphics[width=.3\textwidth]{assets/mockup/Storico aste - create - Asta silenziosa in corso.png} \\
+	\end{tabularx}
+\end{center}
+
+\newpage
 \subsection{Profilo}
 Il mockup "Profilo" mostra le informazioni personali dell'utente loggato.\\
 Premendo il pulsante "Modifica" verrà mostrato il mockup "Modifica profilo" dove l'utente può modificare nome, cognome, bio, link al proprio sito e link ai profili social.
@@ -571,18 +590,29 @@ Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerc
 \section{Specifica dei requisiti}
 \subsection{Modelli di dominio}
 \subsection*{Registrazione e accesso}
-\input{assets/modelli_di_dominio/tikz-uml/registrazione_accesso.tex}
-
+\input{assets/modelli_di_dominio/registrazione_accesso.tex}
 \newpage
+
 \subsection*{Creazione asta silenziosa}
-\input{assets/modelli_di_dominio/tikz-uml/creazione_asta_silenziosa.tex}
-
+\input{assets/modelli_di_dominio/creazione_asta_silenziosa.tex}
 \newpage
+
 \subsection*{Creazione asta all'inglese}
-\input{assets/modelli_di_dominio/tikz-uml/creazione_asta_inglese.tex}
-
+\input{assets/modelli_di_dominio/creazione_asta_inglese.tex}
 \newpage
-\subsection*{Creazione asta al ribasso}
-\input{assets/modelli_di_dominio/tikz-uml/creazione_asta_ribasso.tex}
 
+\subsection*{Creazione asta al ribasso}
+\input{assets/modelli_di_dominio/creazione_asta_ribasso.tex}
+\newpage
+
+\subsection*{Puntare su un'asta silenziosa}
+\input{assets/modelli_di_dominio/puntare_asta_silenziosa.tex}
+\newpage
+
+\subsection*{Puntare su un'asta all'inglese}
+\input{assets/modelli_di_dominio/puntare_asta_inglese.tex}
+\newpage
+
+\subsection*{Puntare su un'asta al ribasso}
+\input{assets/modelli_di_dominio/puntare_asta_ribasso.tex}
 \newpage
