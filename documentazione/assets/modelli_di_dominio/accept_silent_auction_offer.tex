@@ -1,0 +1,100 @@
+\begin{center}
+	\scalebox{0.7}{
+		\begin{tikzpicture}
+			\umlclass[x=0, y=0, type=Boundary]{AuctionsHistoryPage}{
+				+ showPurchasedAuctionsPage: Button\\
+				+ showCreatedAuctionsPage: Button\\
+			}{}
+
+			\umlclass[right=3cm of AuctionsHistoryPage, type=Boundary]{NavBar}{
+				+ createAuctionPageButton: Button\\
+				+ homePageButton: Button\\
+				+ auctionHistoryPageButton: Button\\
+				+ profilePageButton: Button\\
+			}{}
+
+			\umlclass[below=2cm of NavBar, xshift=4cm, type=Boundary]{HomePage}{
+			}{}
+
+			\umlclass[below=1.5cm of AuctionsHistoryPage, xshift=-3.5cm, type=Boundary]{PurchasedAuctionsPage}{
+			}{}
+
+			\umlclass[below=1.5cm of AuctionsHistoryPage, xshift=3.5cm, type=Boundary]{CreatedAuctionsPage}{
+			}{}
+
+			\umlclass[below=5.3cm of AuctionsHistoryPage, type=Boundary]{AuctionCard}{
+				+ image: Image \\
+				+ category: Text \\
+				+ description: Text \\
+				+ isClosed: Text \\
+				+ auctionDetailPageButton: Button \\
+			}{}
+
+			\umlclass[below=1cm of AuctionCard, type=Boundary]{AuctionDetailPage}{
+				+ image: Image \\
+				+ category: Text \\
+				+ description: Text \\
+			}{}
+
+			\umlclass[right=2cm of AuctionDetailPage, type=Boundary]{SilentAcutionDetailPage}{
+				+ buyerFullName: Text \\
+				+ offerAmount: Text \\
+				+ buyerImage: Image \\
+			}{}
+
+			\umlclass[right=3cm of SilentAcutionDetailPage, type=Boundary]{OfferContainer}{
+				+ amountLabel: Text \\
+				+ buyerFullNameLabel: Text \\
+			}{}
+
+			\umlclass[below=1cm of AuctionDetailPage, type=Control]{HistoryAuctionsController}{}{
+				+ showSellerPage()\\
+				+ acceptOffer(offer)\\
+			}
+
+			\umlclass[below=1cm of HistoryAuctionsController, type=Entity]{Auction}{
+				+ description: String\\
+				+ imagePath: String\\
+				+ category: String\\
+			}{}
+
+			\umlclass[right=3cm of Auction, type=Entity]{Offer}{
+				+ amount: double\\
+			}{}
+
+			\umlclass[right=3cm of Offer, type=Entity]{User}{
+				+ firstName: String \\
+				+ lastName: String \\
+				+ email: String \\
+				+ password: String \\
+				+ bio: String \\
+				+ webSiteLink: String \\
+				+ profileImagePath: String \\
+				+ socialLink: String[] \\
+			}{}
+
+			
+
+			% \umlinherit{SilentAuction}{Auction}
+			% \umlassoc[mult1=1, mult2=0..1]{User}{DescendingAuctionOffer}
+			% \umlaggreg{HomePage}{AuctionPage}
+			\umlassoc{AuctionsHistoryPage}{NavBar}
+			\umlassoc{NavBar}{HomePage}
+			
+			\umlcompo{AuctionsHistoryPage}{PurchasedAuctionsPage}
+			\umlcompo{AuctionsHistoryPage}{CreatedAuctionsPage}
+			\umlcompo[mult2=0..*, mult1=1]{SilentAcutionDetailPage}{OfferContainer}
+
+			\umlaggreg{PurchasedAuctionsPage}{AuctionCard}
+			\umlaggreg{CreatedAuctionsPage}{AuctionCard}
+
+			\umlassoc{AuctionCard}{AuctionDetailPage}
+			\umlassoc{AuctionDetailPage}{HistoryAuctionsController}
+			\umlassoc{HistoryAuctionsController}{Auction}
+			\umlassoc[mult2=0..*, mult1=1]{Auction}{Offer}
+			\umlassoc[mult1=0..1, mult2=1]{Offer}{User}
+			\umlinherit{SilentAcutionDetailPage}{AuctionDetailPage}
+
+		\end{tikzpicture}
+	}
+\end{center}
