@@ -441,7 +441,7 @@ Il terzo mockup mostra la pagina di dettaglio di un'asta silenziosa ancora in co
 	\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
 		Dettagli asta acquistata                                                                          &
 		Dettagli asta venduta (terminata)                                                                 &
-		Dettagli asta silenziosa \qquad (in corso)                                                                      \\
+		Dettagli asta silenziosa \qquad (in corso)                                                               \\
 		\includegraphics[width=.3\textwidth]{assets/mockup/Storico aste - acquistate - Dettagli asta.png} &
 		\includegraphics[width=.3\textwidth]{assets/mockup/Storico aste - create - terminata.png}         &
 		\includegraphics[width=.3\textwidth]{assets/mockup/Storico aste - create - Asta silenziosa in corso.png} \\
@@ -548,7 +548,14 @@ Statista, "E-commerce user demographics in 2023", disponibile su \url{www.statis
 Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerce360.com} .
 
 \section{Valutazione dell'usabilità a priori}
+La valutazione dell'usabilità a priori è un importante fase nella progettazione di interfacce utente. Questo processo permette di identificare potenziali problemi di usabilità prima che il prodotto venga rilasciato.\meskip
+Uno dei metodi che abbiamo utilizzato è stato l'applicazione delle euristiche di Nielsen.\sskip
+Le euristiche di Nielsen sono un insieme di dieci principi generali per la progettazione dell'interfaccia utente. Questi principi servono come linee guida, non sono regole rigide ma piuttosto suggerimenti che possono aiutare a valutare, identificare e migliorare problemi comuni di usabilità. 
+
+\newpage
+
 \subsection{Euristiche di Nielsen}
+
 \begin{enumerate}
 	\item \textbf{\sffamily Visibilità dello stato del sistema} \\
 	      L'applicazione dovrebbe sempre tenere gli utenti informati su cosa sta succedendo, fornendo dei feedback immediati a seguito di un'azione.
@@ -589,6 +596,15 @@ Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerc
 
 \section{Specifica dei requisiti}
 \subsection{Modelli di dominio}
+Quando si sviluppa un progetto software, è importante avere una chiara comprensione del sistema che si sta costruendo. Un modello di dominio aiuta a definire gli elementi principali del sistema, come interagiscono tra loro e come vengono rappresentati nel software.\sskip
+Per strutturare il nostro modello di dominio, abbiamo adottato l'approccio "Three Object Type", che suddivide gli oggetti del sistema in tre categorie principali:
+\begin{itemize}
+	\item \textbf{Boundary}: Questi oggetti gestiscono l'interazione tra il sistema e gli attori esterni, come utenti o altri sistemi. Fungono da intermediari tra l'interfaccia utente e la logica interna dell'applicazione.
+	\item \textbf{Control}: Questi oggetti implementano la logica di business e coordinano il flusso di dati tra gli oggetti Boundary e Entity. I Control mantengono separati gli aspetti di presentazione e quelli relativi ai dati, rendendo il sistema più facile da mantenere e migliorare.
+	\item \textbf{Entity}: Questi oggetti sono utilizzati per modellare gli oggetti del mondo reale o concettuale che il sistema deve gestire e che devono essere persistenti, cioè mantenere il loro stato nel tempo.
+\end{itemize}
+\newpage
+
 \subsection*{Registrazione e accesso}
 \input{assets/modelli_di_dominio/registrazione_accesso.tex}
 \newpage
