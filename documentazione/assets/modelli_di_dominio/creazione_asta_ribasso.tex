@@ -73,18 +73,18 @@
 			}{}
 
 			% Relationships
-			\umlinherit{CreateEnglishAuction}{CreateAuctionPage}
-			\umlinherit{CreateSilentAuction}{CreateAuctionPage}
-			\umlinherit{CreateDescendingAuction}{CreateAuctionPage}
-			\umlassoc{AuctionTypeCreationPage}{NavBar}
-			\umlassoc{AuctionTypeCreationPage}{CreateDescendingAuction}
-			\umlassoc{CreateDescendingAuction}{CreateAuctionController}
-			\umlassoc{CreateAuctionController}{Feedback}
-			\umlassoc{CreateAuctionController}{DescendingAuction}
-			\umlinherit{SilentAuction}{Auction}
-			\umlinherit{DescendingAuction}{Auction}
-			\umlinherit{EnglishAuction}{Auction}
-			\umlassoc[mult2=1, mult1=0..*]{Auction}{User}
+			\umlinherit[line width=2pt]{CreateEnglishAuction}{CreateAuctionPage}
+			\umlinherit[line width=2pt]{CreateSilentAuction}{CreateAuctionPage}
+			\umlinherit[line width=2pt]{CreateDescendingAuction}{CreateAuctionPage}
+			\umlassoc[line width=2pt]{AuctionTypeCreationPage}{NavBar}
+			\umlassoc[line width=2pt]{AuctionTypeCreationPage}{CreateDescendingAuction}
+			\umlassoc[line width=2pt]{CreateDescendingAuction}{CreateAuctionController}
+			\umlassoc[line width=2pt]{CreateAuctionController}{Feedback}
+			\umlassoc[line width=2pt]{CreateAuctionController}{DescendingAuction}
+			\umlinherit[line width=2pt]{SilentAuction}{Auction}
+			\umlinherit[line width=2pt]{DescendingAuction}{Auction}
+			\umlinherit[line width=2pt]{EnglishAuction}{Auction}
+			\umlassoc[line width=2pt, mult2=1, mult1=0..*]{Auction}{User}
 		\end{tikzpicture}
 	}
 \end{center}

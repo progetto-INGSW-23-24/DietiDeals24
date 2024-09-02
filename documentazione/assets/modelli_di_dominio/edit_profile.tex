@@ -55,14 +55,14 @@
 			\umlclass[type=Entity, below=2cm of ProfileController]{User}{}{}
 
 			% Relationships
-			\umlcompo{SocialLinkForm}{SocialLink}
-			\umlcompo{SocialLinkForm}{SocialLinkBottomSheet}
-			\umlcompo{EditProfilePage}{SocialLinkForm}
-			\umlaggreg{ProfilePage}{EditProfilePage}
-			\umlassoc{ProfilePage}{NavBar}
-			\umlassoc{ProfilePage}{ProfileController}
-			\umlassoc{Feedback}{ProfileController}
-			\umlassoc{User}{ProfileController}
+			\umlcompo[line width=2pt]{SocialLinkForm}{SocialLink}
+			\umlcompo[line width=2pt]{SocialLinkForm}{SocialLinkBottomSheet}
+			\umlcompo[line width=2pt]{EditProfilePage}{SocialLinkForm}
+			\umlaggreg[line width=2pt]{ProfilePage}{EditProfilePage}
+			\umlassoc[line width=2pt]{ProfilePage}{NavBar}
+			\umlassoc[line width=2pt]{ProfilePage}{ProfileController}
+			\umlassoc[line width=2pt]{Feedback}{ProfileController}
+			\umlassoc[line width=2pt]{User}{ProfileController}
 		\end{tikzpicture}
 	}
 \end{center}

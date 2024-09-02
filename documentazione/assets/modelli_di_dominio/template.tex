@@ -43,11 +43,11 @@
 
 	% Relationships
 	\umlimpl{MyControl}{MyEntity}
-	\umlcompo{MyBoundary}{MyControl}
-	\umlaggreg{MyControl}{MyControl2}
-	\umlassoc{MyControl}{MyControl3}
+	\umlcompo[line width=2pt]{MyBoundary}{MyControl}
+	\umlaggreg[line width=2pt]{MyControl}{MyControl2}
+	\umlassoc[line width=2pt]{MyControl}{MyControl3}
 	\umldep{MyEntity}{MyBoundary}
-	\umlinherit[mult1=1..1, mult2=0..*, pos1=0, pos2=0.6]{MyControl2}{MyBoundary}
+	\umlinherit[line width=2pt, mult1=1..1, mult2=0..*, pos1=0, pos2=0.6]{MyControl2}{MyBoundary}
 \end{tikzpicture}
 
 \end{document}

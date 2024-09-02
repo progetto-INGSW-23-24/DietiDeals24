@@ -81,23 +81,23 @@
 
 
 
-			\umlinherit{EnglishAuctionDetailPage}{AuctionDetailPage}
-			\umlinherit{DescendingAuctionDetailPage}{AuctionDetailPage}
-			\umlinherit{SilentAuctionDetailPage}{AuctionDetailPage}
+			\umlinherit[line width=2pt]{EnglishAuctionDetailPage}{AuctionDetailPage}
+			\umlinherit[line width=2pt]{DescendingAuctionDetailPage}{AuctionDetailPage}
+			\umlinherit[line width=2pt]{SilentAuctionDetailPage}{AuctionDetailPage}
 
-			\umlinherit{DescendingAuction}{Auction}
-			\umlinherit{EnglishAuction}{Auction}
-			\umlinherit{SilentAuction}{Auction}
+			\umlinherit[line width=2pt]{DescendingAuction}{Auction}
+			\umlinherit[line width=2pt]{EnglishAuction}{Auction}
+			\umlinherit[line width=2pt]{SilentAuction}{Auction}
 
-			\umlassoc[mult1=1, mult2=0..1]{User}{SilentAuctionOffer}
-			\umlassoc[mult2=1, mult1=0..*]{SilentAuctionOffer}{SilentAuction}
-			\umlassoc{SilentAuction}{AuctionOfferController}
-			\umlassoc{AuctionOfferController}{Feedback}
-			\umlassoc{AuctionOfferController}{SilentAuctionDetailPage}
-			\umlassoc{AuctionDetailPage}{AuctionCard}
-			\umlassoc{SellerProfilePage}{AuctionDetailPage}
+			\umlassoc[line width=2pt, mult1=1, mult2=0..1]{User}{SilentAuctionOffer}
+			\umlassoc[line width=2pt, mult2=1, mult1=0..*]{SilentAuctionOffer}{SilentAuction}
+			\umlassoc[line width=2pt]{SilentAuction}{AuctionOfferController}
+			\umlassoc[line width=2pt]{AuctionOfferController}{Feedback}
+			\umlassoc[line width=2pt]{AuctionOfferController}{SilentAuctionDetailPage}
+			\umlassoc[line width=2pt]{AuctionDetailPage}{AuctionCard}
+			\umlassoc[line width=2pt]{SellerProfilePage}{AuctionDetailPage}
 
-			\umlaggreg{HomePage}{AuctionCard}
+			\umlaggreg[line width=2pt]{HomePage}{AuctionCard}
 		\end{tikzpicture}
 	}
 \end{center}

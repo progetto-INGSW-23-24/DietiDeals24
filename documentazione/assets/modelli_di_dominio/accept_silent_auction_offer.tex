@@ -73,27 +73,22 @@
 				+ socialLink: String[] \\
 			}{}
 
+			\umlassoc[line width=2pt]{AuctionsHistoryPage}{NavBar}
+			\umlassoc[line width=2pt]{NavBar}{HomePage}
 			
+			\umlcompo[line width=2pt]{AuctionsHistoryPage}{PurchasedAuctionsPage}
+			\umlcompo[line width=2pt]{AuctionsHistoryPage}{CreatedAuctionsPage}
+			\umlcompo[line width=2pt, mult2=0..*, mult1=1]{SilentAcutionDetailPage}{OfferContainer}
 
-			% \umlinherit{SilentAuction}{Auction}
-			% \umlassoc[mult1=1, mult2=0..1]{User}{DescendingAuctionOffer}
-			% \umlaggreg{HomePage}{AuctionPage}
-			\umlassoc{AuctionsHistoryPage}{NavBar}
-			\umlassoc{NavBar}{HomePage}
-			
-			\umlcompo{AuctionsHistoryPage}{PurchasedAuctionsPage}
-			\umlcompo{AuctionsHistoryPage}{CreatedAuctionsPage}
-			\umlcompo[mult2=0..*, mult1=1]{SilentAcutionDetailPage}{OfferContainer}
+			\umlaggreg[line width=2pt]{PurchasedAuctionsPage}{AuctionCard}
+			\umlaggreg[line width=2pt]{CreatedAuctionsPage}{AuctionCard}
 
-			\umlaggreg{PurchasedAuctionsPage}{AuctionCard}
-			\umlaggreg{CreatedAuctionsPage}{AuctionCard}
-
-			\umlassoc{AuctionCard}{AuctionDetailPage}
-			\umlassoc{AuctionDetailPage}{HistoryAuctionsController}
-			\umlassoc{HistoryAuctionsController}{Auction}
-			\umlassoc[mult2=0..*, mult1=1]{Auction}{Offer}
-			\umlassoc[mult1=0..1, mult2=1]{Offer}{User}
-			\umlinherit{SilentAcutionDetailPage}{AuctionDetailPage}
+			\umlassoc[line width=2pt]{AuctionCard}{AuctionDetailPage}
+			\umlassoc[line width=2pt]{AuctionDetailPage}{HistoryAuctionsController}
+			\umlassoc[line width=2pt]{HistoryAuctionsController}{Auction}
+			\umlassoc[line width=2pt, mult2=0..*, mult1=1]{Auction}{Offer}
+			\umlassoc[line width=2pt, mult1=0..1, mult2=1]{Offer}{User}
+			\umlinherit[line width=2pt]{SilentAcutionDetailPage}{AuctionDetailPage}
 
 		\end{tikzpicture}
 	}
