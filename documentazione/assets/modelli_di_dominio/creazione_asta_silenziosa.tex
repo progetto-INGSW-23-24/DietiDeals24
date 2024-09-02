@@ -1,58 +1,63 @@
 \begin{center}
 	\scalebox{0.7}{
 		\begin{tikzpicture}
-			\umlclass[type=Boundary, x=9, y=-4]{AuctionTypeCreationPage}{
+			\umlclass[type=Boundary]{AuctionTypeCreationPage}{
 				+ descendingAuctionButton: Button \\
 				+ englishAuctionButton: Button \\
 				+ silentAuctionButton: Button \\
 			}{}
 
-			\umlclass[type=Boundary, left=3cm of AuctionTypeCreationPage, yshift=1.5cm]{CreateDescendingAuction}{
-			}{}
-
-			\umlclass[type=Boundary, left=3cm of AuctionTypeCreationPage, yshift=-1.5cm]{CreateEnglishAuction}{
-			}{}
-
-			\umlclass[type=Boundary, right=2.5cm of AuctionTypeCreationPage, yshift=1cm]{NavBar}{
+		\umlclass[type=Boundary, below=1cm of AuctionTypeCreationPage, xshift=6cm]{NavBar}{
 				+ createAuctionPageButton: Button\\
 				+ homePageButton: Button\\
 				+ auctionHistoryPageButton: Button\\
 				+ profilePageButton: Button\\
 			}{}
 
-			\umlclass[type=Boundary, below=1cm of AuctionTypeCreationPage]{CreateSilentAuction}{
+			\umlclass[type=Boundary, below=3cm of AuctionTypeCreationPage, xshift=-2cm]{CreateSilentAuction}{
+				+ dateTimePicker: DateTimePicker \\
+			}{}
+
+			\umlclass[type=Boundary, left=1.5cm of CreateSilentAuction]{CreateAuctionPage}{
 				+ loadImageButton: Button \\
 				+ descriptionTextField: TextField \\
 				+ categorySelect: Select \\
-				+ dateTimePicker: DateTimePicker \\
 				+ publishButton: Button \\
 			}{}
 
-			\umlclass[type=Control, below=1cm of CreateSilentAuction]{CreateAuctionController}{}{
+			\umlclass[type=Boundary, above=2cm of CreateAuctionPage, xshift=3cm]{CreateDescendingAuction}{
+			}{}
+
+			\umlclass[type=Boundary, above=2cm of CreateAuctionPage, xshift=-3cm]{CreateEnglishAuction}{
+			}{}
+
+			\umlclass[type=Control, below=2cm of CreateSilentAuction]{CreateAuctionController}{}{
 				+ createSilentAuction(image, description, category, expirationDateTime) \\
 				+ createDescendingAuction() \\
 				+ createEnglishAuction()
 			}
 
-			\umlclass[type=Boundary, right=1cm of CreateAuctionController, yshift=4cm]{Feedback}{
+			\umlclass[type=Boundary, right=1cm of CreateAuctionController, yshift=2cm]{Feedback}{
 				+ message: String
 			}{}
 
-			\umlclass[type=Entity, x=1, y=-19]{DescendingAuction}{
-			}{}
-			\umlclass[type=Entity, x=0, y=-22]{EnglishAuction}{
-			}{}
-			\umlclass[type=Entity, below=1cm of CreateAuctionController]{SilentAuction}{
+			
+			\umlclass[type=Entity, below=2cm of CreateAuctionController]{SilentAuction}{
 				+ expirationDateTime: DateTime \\
 			}{}
 
-			\umlclass[type=Entity, below=1cm of SilentAuction]{Auction}{
+			\umlclass[type=Entity, below=2cm of SilentAuction]{Auction}{
 				+ description: String \\
 				+ imagePath: String \\
 				+ category: String \\
 			}{}
 
-			\umlclass[below=1.5cm of Auction, type=Entity]{User}{
+			\umlclass[type=Entity, left=2cm of Auction, yshift=2cm]{DescendingAuction}{
+			}{}
+			\umlclass[type=Entity, left=2cm of Auction, yshift=-1cm]{EnglishAuction}{
+			}{}
+
+			\umlclass[below=2cm of Auction, type=Entity]{User}{
 				+ firstName: String \\
 				+ lastName: String \\
 				+ email: String \\
@@ -64,8 +69,9 @@
 			}{}
 
 			% Relationships
-			\umlassoc{AuctionTypeCreationPage}{CreateDescendingAuction}
-			\umlassoc{AuctionTypeCreationPage}{CreateEnglishAuction}
+			\umlinherit{CreateEnglishAuction}{CreateAuctionPage}
+			\umlinherit{CreateSilentAuction}{CreateAuctionPage}
+			\umlinherit{CreateDescendingAuction}{CreateAuctionPage}
 			\umlassoc{AuctionTypeCreationPage}{NavBar}
 			\umlassoc{AuctionTypeCreationPage}{CreateSilentAuction}
 			\umlassoc{CreateSilentAuction}{CreateAuctionController}

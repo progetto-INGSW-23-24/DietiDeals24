@@ -1,31 +1,34 @@
 \begin{center}
 	\scalebox{0.67}{
 		\begin{tikzpicture}
-			\umlclass[type=Boundary, x=9, y=0]{AuctionTypeCreationPage}{
+			\umlclass[type=Boundary, x=0, y=0]{AuctionTypeCreationPage}{
 				+ descendingAuctionButton: Button \\
 				+ englishAuctionButton: Button \\
 				+ silentAuctionButton: Button \\
 			}{}
 
-			\umlclass[type=Boundary, left=3cm of AuctionTypeCreationPage, yshift=1.5cm]{CreateEnglishAuction}{
-			}{}
-			
-			\umlclass[type=Boundary, left=3cm of AuctionTypeCreationPage, yshift=-1.5cm]{CreateSilentAuction}{
-			}{}
-
-			\umlclass[type=Boundary, right=3cm of AuctionTypeCreationPage, yshift=1cm]{NavBar}{
+			\umlclass[type=Boundary, below=1cm of AuctionTypeCreationPage, xshift=7cm]{NavBar}{
 				+ createAuctionButton: Button
 			}{}
 
-			\umlclass[type=Boundary, below=1cm of AuctionTypeCreationPage]{CreateDescendingAuction}{
-				+ loadImageButton: Button \\
-				+ descriptionTextField: TextField \\
-				+ categorySelect: Select \\
+			\umlclass[type=Boundary, below=3cm of AuctionTypeCreationPage, xshift=-2cm]{CreateDescendingAuction}{
 				+ startingPriceTextField: TextField \\
 				+ minimumPriceTextField: TextField \\
 				+ decreaseAmountTextField: TextField \\
 				+ decreaseTimeTextField: TextField \\
+			}{}
+
+			\umlclass[type=Boundary, left=2cm of CreateDescendingAuction]{CreateAuctionPage}{
+				+ loadImageButton: Button \\
+				+ descriptionTextField: TextField \\
+				+ categorySelect: Select \\
 				+ publishButton: Button \\
+			}{}
+
+			\umlclass[type=Boundary, above=2cm of CreateAuctionPage, xshift=3cm]{CreateEnglishAuction}{
+			}{}
+
+			\umlclass[type=Boundary, above=2cm of CreateAuctionPage, xshift=-3cm]{CreateSilentAuction}{
 			}{}
 
 			\umlclass[type=Control, below=1cm of CreateDescendingAuction]{CreateAuctionController}{}{
@@ -52,7 +55,7 @@
 				+ imagePath: String \\
 				+ category: String \\
 			}{}
-			
+
 			\umlclass[type=Entity, left=3cm of Auction, yshift=4cm]{EnglishAuction}{
 			}{}
 			\umlclass[type=Entity, left=5cm of Auction, yshift=1cm]{SilentAuction}{
@@ -68,10 +71,11 @@
 				+ profileImagePath: String \\
 				+ socialLink: String[] \\
 			}{}
-			
+
 			% Relationships
-			\umlassoc{AuctionTypeCreationPage}{CreateEnglishAuction}
-			\umlassoc{AuctionTypeCreationPage}{CreateSilentAuction}
+			\umlinherit{CreateEnglishAuction}{CreateAuctionPage}
+			\umlinherit{CreateSilentAuction}{CreateAuctionPage}
+			\umlinherit{CreateDescendingAuction}{CreateAuctionPage}
 			\umlassoc{AuctionTypeCreationPage}{NavBar}
 			\umlassoc{AuctionTypeCreationPage}{CreateDescendingAuction}
 			\umlassoc{CreateDescendingAuction}{CreateAuctionController}
