@@ -467,6 +467,18 @@ Infine premerà il tasto "Salva" per salvare le modifica effettuate.
 \end{center}
 
 \newpage
+\subsection{Profilo Venditore}
+Il mockup "Profilo Venditore" mostra le informazioni personali del venditore selezionato.
+
+\begin{center}
+	\begin{tabular}{ccc}
+		Profilo venditore                                                                                   \\
+		\includegraphics[width=.3\textwidth]{assets/mockup/Profilo venditore.png} \\
+	\end{tabular}
+\end{center}
+
+\newpage
+
 \subsection{Piazzare un'offerta}
 Dalla pagina Home, premendo su un'asta, l'applicazione navigherà a una di queste tre pagine a seconda del tipo di asta.\\
 In base al tipo di asta, l'utente inserira l'importo della sua offerta oppure l'acquisterà direttamente (nel caso dell'asta al ribasso)
@@ -550,7 +562,7 @@ Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerc
 \section{Valutazione dell'usabilità a priori}
 La valutazione dell'usabilità a priori è un importante fase nella progettazione di interfacce utente. Questo processo permette di identificare potenziali problemi di usabilità prima che il prodotto venga rilasciato.\meskip
 Uno dei metodi che abbiamo utilizzato è stato l'applicazione delle euristiche di Nielsen.\sskip
-Le euristiche di Nielsen sono un insieme di dieci principi generali per la progettazione dell'interfaccia utente. Questi principi servono come linee guida, non sono regole rigide ma piuttosto suggerimenti che possono aiutare a valutare, identificare e migliorare problemi comuni di usabilità. 
+Le euristiche di Nielsen sono un insieme di dieci principi generali per la progettazione dell'interfaccia utente. Questi principi servono come linee guida, non sono regole rigide ma piuttosto suggerimenti che possono aiutare a valutare, identificare e migliorare problemi comuni di usabilità.
 
 \newpage
 
@@ -560,7 +572,7 @@ Le euristiche di Nielsen sono un insieme di dieci principi generali per la proge
 	\item \textbf{\sffamily Visibilità dello stato del sistema} \\
 	      L'applicazione dovrebbe sempre tenere gli utenti informati su cosa sta succedendo, fornendo dei feedback immediati a seguito di un'azione.
 
-	      Ad esempio, quando un utente effettua un'offerta, il sistema deve fornire un messaggio di conferma.
+	      All'interno dell'applicazione questa euristica viene soddisfatta implementando notifiche, alert, messaggi di conferma.
 
 	\item \textbf{\sffamily Corrispondenza tra il sistema e il mondo reale} \\
 	      L'applicazione dovrebbe utilizzare un linguaggio semplice, con termini che gli utenti comprendono facilmente, evitando il termini tecnici.
@@ -569,29 +581,46 @@ Le euristiche di Nielsen sono un insieme di dieci principi generali per la proge
 	\item \textbf{\sffamily Controllo dell'utente e libertà} \\
 	      Gli utenti spesso commettono errori e dovrebbero essere in grado di annullare facilmente le azioni indesiderate.
 
+	      Dovremmo implementare dei dialog di conferma quando l'utente preme determinati button.
+
 	\item \textbf{\sffamily Coerenza e standard} \\
 	      L'interfaccia dell'applicazione dovrebbe essere coerente in tutte le sue sezioni, sia in termini di design che di funzionalità.
 	      Ad esempio i pulsanti, i colori e le azioni devono avere lo stesso significato in tutte le schermate.
 
+	      Di conseguenza, l'interfaccia è stata creata utilizzando componenti di Material Design, libreria standard di Google che fornisce componenti conformi agli standard e per cui la maggior parte degli utenti ha già una certa familiarità.
+
 	\item \textbf{\sffamily Prevenzione degli errori} \\
 	      L'app dovrebbe prevenire gli errori rendendo difficile per gli utenti fare scelte sbagliate. È meglio progettare l'interfaccia in modo da evitare che gli errori accadano, piuttosto che fornire messaggi di errore.
+
+	      Anche in questo caso, l'implementazione di Dialog previene i possibili errori che gli utenti possono commettere.
 
 	\item \textbf{\sffamily Riconoscimento piuttosto che ricordo} \\
 	      Ridurre al minimo la quantità di informazioni che l'utente deve ricordare durante la navigazione.
 	      Ad esempio, fornendo suggerimenti durante l'uso dell'app per agevolare l'interazione dell'utente.
 
+	      Per quanto riguarda questa euristica, abbiamo creato, nella pagina di creazione di un'asta, un "info button" che spiega brevemente le differenze tra le tipologie di asta.
+
 	\item \textbf{\sffamily Flessibilità ed Efficienza} \\
 	      L'app dovrebbe essere utilizzabile sia da utenti principianti che esperti.
+
+	      L'apprendimento degli utenti è molto semplificato dall'uso di componenti UI standard, e da un interfaccia minimal e chiara.
 
 	\item \textbf{\sffamily Design Estetico e Minimalista} \\
 	      Le informazioni e le opzioni inutili dovrebbero essere eliminate.
 	      Ogni elemento dell'interfaccia dovrebbe avere uno scopo chiaro.
 
+	      Di fatto, ci colleghiamo ai punti precedenti.
+
 	\item \textbf{\sffamily Aiuto e Documentazione} \\
 	      L'applicazione dovrebbe essere facile da usare senza documentazione, dovrebbe esserci comunque un aiuto disponibile per gli utenti che lo richiedono.
 
+	      Come abbiamo già affermato precedentemente, l'utilizzo di componenti UI standard rende molto più facile agli utenti navigare attraverso l'interfaccia.
+	      Inoltre, le informazioni poco chiare, come possono essere la tipologia di asta che un utente può creare, è accompagnata da un "info button" facilmente individuabile, che fornisce informazioni chiare e precise.
+
 	\item \textbf{\sffamily Gestione degli Errori} \\
 	      Se si verificano errori, il sistema dovrebbe presentare messaggi d'errore chiari e non codici d'errore.
+
+	      Quest'euristica viene rispettata andando a creare degli alert con messaggi d'errore chiari all'interno dell'interfaccia.
 \end{enumerate}
 
 \section{Specifica dei requisiti}

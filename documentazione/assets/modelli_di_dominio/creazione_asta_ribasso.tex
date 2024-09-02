@@ -1,23 +1,23 @@
 \begin{center}
 	\scalebox{0.67}{
 		\begin{tikzpicture}
-			\umlclass[type=Boundary, x=9, y=0]{CreateAuction}{
+			\umlclass[type=Boundary, x=9, y=0]{AuctionTypeCreationPage}{
 				+ descendingAuctionButton: Button \\
 				+ englishAuctionButton: Button \\
 				+ silentAuctionButton: Button \\
 			}{}
 
-			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=1.5cm]{CreateEnglishAuction}{
+			\umlclass[type=Boundary, left=3cm of AuctionTypeCreationPage, yshift=1.5cm]{CreateEnglishAuction}{
 			}{}
 			
-			\umlclass[type=Boundary, left=3cm of CreateAuction, yshift=-1.5cm]{CreateSilentAuction}{
+			\umlclass[type=Boundary, left=3cm of AuctionTypeCreationPage, yshift=-1.5cm]{CreateSilentAuction}{
 			}{}
 
-			\umlclass[type=Boundary, right=3cm of CreateAuction, yshift=1cm]{NavBar}{
+			\umlclass[type=Boundary, right=3cm of AuctionTypeCreationPage, yshift=1cm]{NavBar}{
 				+ createAuctionButton: Button
 			}{}
 
-			\umlclass[type=Boundary, below=1cm of CreateAuction]{CreateDescendingAuction}{
+			\umlclass[type=Boundary, below=1cm of AuctionTypeCreationPage]{CreateDescendingAuction}{
 				+ loadImageButton: Button \\
 				+ descriptionTextField: TextField \\
 				+ categorySelect: Select \\
@@ -70,10 +70,10 @@
 			}{}
 			
 			% Relationships
-			\umlassoc{CreateAuction}{CreateEnglishAuction}
-			\umlassoc{CreateAuction}{CreateSilentAuction}
-			\umlassoc{CreateAuction}{NavBar}
-			\umlassoc{CreateAuction}{CreateDescendingAuction}
+			\umlassoc{AuctionTypeCreationPage}{CreateEnglishAuction}
+			\umlassoc{AuctionTypeCreationPage}{CreateSilentAuction}
+			\umlassoc{AuctionTypeCreationPage}{NavBar}
+			\umlassoc{AuctionTypeCreationPage}{CreateDescendingAuction}
 			\umlassoc{CreateDescendingAuction}{CreateAuctionController}
 			\umlassoc{CreateAuctionController}{Feedback}
 			\umlassoc{CreateAuctionController}{DescendingAuction}

@@ -2,38 +2,47 @@
 	\scalebox{0.7}{
 		\begin{tikzpicture}
 			\umlclass[type=Boundary]{AuctionDetailPage}{
-			}{}
-
-			\umlclass[above=3.5cm of AuctionDetailPage, xshift=4cm, type=Boundary]{SilentAuctionDetailPage}{
-			}{}
-
-			\umlclass[above=3.5cm of AuctionDetailPage, xshift=-4cm, type=Boundary]{EnglishAuctionDetailPage}{
-			}{}
-			
-			\umlclass[right=2cm of AuctionDetailPage, type=Boundary]{DescendingAuctionDetailPage}{
 				+ sellerProfileImage: Image \\
 				+ sellerFullNameLabel: Text \\
 				+ productImage: Image \\
 				+ productDescriptionLabel: Text \\
+				+ confirmOfferButton: Button \\
+				+ showSellerProfilePageButton: Button \\
+			}{
+				+ showSellerProfilePage() \\
+			}
+
+			\umlclass[above=2.5cm of AuctionDetailPage, xshift=4cm, type=Boundary]{SilentAuctionDetailPage}{
+			}{}
+
+			\umlclass[above=2.5cm of AuctionDetailPage, xshift=-4cm, type=Boundary]{EnglishAuctionDetailPage}{
+			}{}
+
+			\umlclass[right=2cm of AuctionDetailPage, type=Boundary]{DescendingAuctionDetailPage}{
 				+ currentPriceLabel: Text \\
 				+ decreaseTimerLabel: Text \\
 				+ offerTextField: TextField \\
-				+ confirmOfferButton: Button \\
-				+ showSellerProfilePageButton: Button \\
 			}{}
 
-			\umlclass[left=1.5cm of AuctionDetailPage, type=Boundary]{AuctionPage}{
+			\umlclass[left=1.5cm of AuctionDetailPage, type=Boundary]{AuctionCard}{
 				+ goToDetailPageButton: Button
 			}{}
 
-			\umlclass[above=1.5cm of AuctionPage, xshift=-4cm, type=Boundary]{HomePage}{
+			\umlclass[above=1.5cm of AuctionCard, xshift=-2cm, type=Boundary]{HomePage}{
 			}{}
 
-			\umlclass[below=3cm of AuctionDetailPage, type=Control]{AuctionOfferController}{}{
+			\umlclass[left=3cm of AuctionDetailPage, yshift=-4.5cm, type=Boundary]{SellerProfilePage}{
+				fullNameLabel: Text \\
+				profileImage: Image \\
+				bio: Text \\
+				webSiteLink: TextButton \\
+				socialLinkList: TextButton[] \\
+			}{}
+
+			\umlclass[below=2cm of AuctionDetailPage, type=Control]{AuctionOfferController}{}{
 				+ createDescendingAuctionOffer() \\
 				+ createEnglishAuctionOffer() \\
 				+ createSilentAuctionOffer() \\
-				+ showSellerProfilePage() \\
 			}
 
 			\umlclass[right=1.5cm of AuctionOfferController,type=Boundary]{Feedback}{
@@ -88,12 +97,11 @@
 			\umlassoc[mult2=1, mult1=0..*]{DescendingAuctionOffer}{DescendingAuction}
 			\umlassoc{DescendingAuction}{AuctionOfferController}
 			\umlassoc{AuctionOfferController}{Feedback}
-			\umlassoc{AuctionOfferController}{AuctionDetailPage}
-			\umlassoc{AuctionDetailPage}{AuctionPage}
+			\umlassoc{AuctionOfferController}{DescendingAuctionDetailPage}
+			\umlassoc{AuctionDetailPage}{AuctionCard}
+			\umlassoc{SellerProfilePage}{AuctionDetailPage}
 
-			\umlaggreg{HomePage}{AuctionPage}
-
-
+			\umlaggreg{HomePage}{AuctionCard}
 		\end{tikzpicture}
 	}
 \end{center}
