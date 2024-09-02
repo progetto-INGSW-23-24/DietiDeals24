@@ -1,0 +1,45 @@
+\begin{center}
+	\scalebox{0.7}{
+		\begin{tikzpicture}
+			\umlclass[type=Boundary, x=0, y=0]{HomePage}{}{}
+
+			\umlclass[type=Boundary, left=2cm of HomePage]{NavBar}{}{}
+
+			\umlclass[type=Boundary, above=2cm of HomePage, xshift=-4cm]{AuctionCard}{}{}
+
+			\umlclass[type=Boundary, above=2cm of HomePage, xshift=4cm]{SearchBar}{
+				+ auctionDescriptionTextField: TextField \\
+			}{}
+
+			\umlclass[type=Boundary, right=2cm of HomePage]{CategoryButton}{
+				+ categoryLabel: TextButton \\
+			}{}
+
+			\umlclass[type=Control, below=2cm of HomePage]{HomePageController}{}{
+				+ filterAuctionsByDescription(patternText: String) \\
+				+ filterAuctionsByCategory(category: String) \\
+			}
+
+			\umlclass[type=Boundary, right=2cm of HomePageController]{Feedback}{
+				+ message: Text \\
+			}{}
+
+			\umlclass[type=Entity, below=2cm of HomePageController]{User}{}{}
+
+			\umlclass[type=Entity, below=2cm of HomePageController, xshift=-6cm]{Auction}{
+				+ category: String \\
+				+ description: String \\
+			}{}
+
+			% Relationships
+			\umlaggreg{HomePage}{CategoryButton}
+			\umlaggreg{HomePage}{AuctionCard}
+			\umlassoc{NavBar}{HomePage}
+			\umlassoc{SearchBar}{HomePage}
+			\umlassoc{HomePage}{HomePageController}
+			\umlassoc{Feedback}{HomePageController}
+			\umlassoc{User}{HomePageController}
+			\umlassoc{Auction}{HomePageController}
+		\end{tikzpicture}
+	}
+\end{center}

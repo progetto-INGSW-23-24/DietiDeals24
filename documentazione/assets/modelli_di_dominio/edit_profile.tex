@@ -1,0 +1,68 @@
+\begin{center}
+	\scalebox{0.7}{
+		\begin{tikzpicture}
+			\umlclass[type=Boundary, x=0, y=0]{EditProfilePage}{
+				+ firstNameTextField: TextField \\
+				+ secondNameTextField: TextField \\
+				+ bioTextField: TextField \\
+				+ websiteLinkTextField: TextField \\
+				+ geoPositionInput: Input \\
+				+ updateInformationsButton: Button \\
+				+ discardChangesButton: Button \\
+				+ image: Image \\
+				+ changeImageButton: Button \\
+			}{}
+
+			\umlclass[type=Boundary, above=2cm of EditProfilePage]{SocialLinkForm}{
+				+ addNewSocialLinkButton: Button \\
+			}{
+				+ openSocialLinkBottomSheet() \\
+			}
+
+			\umlclass[type=Boundary, right=2cm of SocialLinkForm]{SocialLink}{
+				+ socialLinkLabel: Text \\
+				+ deleteSocialLinkButton: Button \\
+			}{}
+
+			\umlclass[type=Boundary, left=2cm of SocialLinkForm]{SocialLinkBottomSheet}{
+				+ socialLinkTextField: TextField \\
+				+ confirmButton: Button \\
+			}{}
+
+			\umlclass[type=Boundary, below=2cm of EditProfilePage]{ProfilePage}{
+				+ firstNameLabel: Text \\
+				+ lastNameLabel: Text \\
+				+ bioLabel: Text \\
+				+ websiteLinkButton: Button \\
+				+ socialLinkButton: Button[] \\
+				+ geoPositionLabel: Text \\
+				+ editProfileButton: Button \\
+				+ image: Image \\
+			}{}
+
+			\umlclass[type=Boundary, left=2cm of ProfilePage]{NavBar}{
+				+ profilePageButton: Button\\
+			}{}
+
+			\umlclass[type=Control, below=2cm of ProfilePage]{ProfileController}{}{
+				+ confirmInformationsUpdate() \\
+			}
+
+			\umlclass[type=Boundary, right=2cm of ProfileController]{Feedback}{
+				+ message: Text \\
+			}{}
+
+			\umlclass[type=Entity, below=2cm of ProfileController]{User}{}{}
+
+			% Relationships
+			\umlcompo{SocialLinkForm}{SocialLink}
+			\umlcompo{SocialLinkForm}{SocialLinkBottomSheet}
+			\umlcompo{EditProfilePage}{SocialLinkForm}
+			\umlaggreg{ProfilePage}{EditProfilePage}
+			\umlassoc{ProfilePage}{NavBar}
+			\umlassoc{ProfilePage}{ProfileController}
+			\umlassoc{Feedback}{ProfileController}
+			\umlassoc{User}{ProfileController}
+		\end{tikzpicture}
+	}
+\end{center}
