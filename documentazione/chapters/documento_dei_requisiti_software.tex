@@ -17,6 +17,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \section{Requisiti individuati}
 \subsection{Requisiti funzionali}
 \begin{itemize}
+	\setstretch{1.2}
 	\item l'utente può registrare un nuovo account
 	\item l'utente può utilizzare un'account da lui registrato per accedere al sistema
 	\item l'utente può registrarsi utilizando credenziali di terze pari (es.: google, facebook, …)
@@ -75,7 +76,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 	      Se, in un'asta all'inglese, più compratori fanno la stessa offerta contemporaneamente, solo uno avrà la meglio.
 
 	      Stesso discorso per un'asta al ribasso, se più compratori decidono di acquistare l'asta a quel prezzo, solo uno avrà la meglio.
-\end{itemize}
+\end{itemize}\bigskip
 \begin{enumerate}
 	\item {\sffamily \textbf{Usabilità}}:\\
 	      L'interfaccia utente deve essere intuitiva e facile da utilizzare, con una chiara visualizzazione delle informazioni relative alle aste e ai profili utenti.
@@ -100,6 +101,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 \newpage
 \subsection{Requisiti di dominio}
 \begin{itemize}
+	\setstretch{1.3}
 	\item l'email è univoca per ogni account. Non possono esserci più account con una sola mail
 	\item un account è sia venditore che compratore
 	\item l'utente non può acquistare le aste create da lui stesso
@@ -472,7 +474,7 @@ Il mockup "Profilo Venditore" mostra le informazioni personali del venditore sel
 
 \begin{center}
 	\begin{tabular}{ccc}
-		Profilo venditore                                                                                   \\
+		Profilo venditore                                                         \\
 		\includegraphics[width=.3\textwidth]{assets/mockup/Profilo venditore.png} \\
 	\end{tabular}
 \end{center}
@@ -496,7 +498,7 @@ In base al tipo di asta, l'utente inserira l'importo della sua offerta oppure l'
 
 \newpage
 \subsection{Creare un'asta}
-Il primo mockup mostra la pagina dov'è possibile selezionare il tipo di asta che si vuole andare a creare.\\
+Il primo mockup mostra la pagina dov'è possibile selezionare il tipo di asta che si vuole creare.\\
 Premendo sul pulsante "i" in alto a destra, apparirà la finestra mostrata nel secondo mockup dove vengono spiegate le differenze fra i tre tipi d'asta.\meskip
 I tre mockup in basso, mostrano le pagine dei diversi tipi di creazione di un'asta.
 
@@ -504,8 +506,8 @@ I tre mockup in basso, mostrano le pagine dei diversi tipi di creazione di un'as
 	\begin{tabular}{ccc}
 		Seleziona tipo di asta                                           &  &
 		Informazioni tipi d'asta                                                        \\
-		\includegraphics[height=280pt]{assets/mockup/Carica Asta 1..png} &  &
-		\includegraphics[height=280pt]{assets/mockup/Carica Asta 1. - informazioni.png} \\
+		\includegraphics[height=270pt]{assets/mockup/Carica Asta 1..png} &  &
+		\includegraphics[height=270pt]{assets/mockup/Carica Asta 1. - informazioni.png} \\
 	\end{tabular}
 \end{center}
 \begin{center}
@@ -513,9 +515,9 @@ I tre mockup in basso, mostrano le pagine dei diversi tipi di creazione di un'as
 		Creazione asta all'Inglese                                                         &  &
 		Creazione asta al Ribasso                                                          &  &
 		Creazione asta Silenziosa                                                               \\
-		\includegraphics[height=280pt]{assets/mockup/Carica Asta 1.1 Asta all'Inglese.png} &  &
-		\includegraphics[height=280pt]{assets/mockup/Carica Asta 1.1 Asta al Ribasso.png}  &  &
-		\includegraphics[height=280pt]{assets/mockup/Carica Asta 1.1 Asta Silenziosa.png}       \\
+		\includegraphics[height=270pt]{assets/mockup/Carica Asta 1.1 Asta all'Inglese.png} &  &
+		\includegraphics[height=270pt]{assets/mockup/Carica Asta 1.1 Asta al Ribasso.png}  &  &
+		\includegraphics[height=270pt]{assets/mockup/Carica Asta 1.1 Asta Silenziosa.png}       \\
 	\end{tabular}
 \end{center}
 
@@ -564,15 +566,13 @@ La valutazione dell'usabilità a priori è un importante fase nella progettazion
 Uno dei metodi che abbiamo utilizzato è stato l'applicazione delle euristiche di Nielsen.\sskip
 Le euristiche di Nielsen sono un insieme di dieci principi generali per la progettazione dell'interfaccia utente. Questi principi servono come linee guida, non sono regole rigide ma piuttosto suggerimenti che possono aiutare a valutare, identificare e migliorare problemi comuni di usabilità.
 
-\newpage
-
 \subsection{Euristiche di Nielsen}
 
 \begin{enumerate}
 	\item \textbf{\sffamily Visibilità dello stato del sistema} \\
 	      L'applicazione dovrebbe sempre tenere gli utenti informati su cosa sta succedendo, fornendo dei feedback immediati a seguito di un'azione.
 
-	      All'interno dell'applicazione questa euristica viene soddisfatta implementando notifiche, alert, messaggi di conferma.
+	      All'interno dell'applicazione questa euristica viene soddisfatta implementando alert e messaggi di conferma.
 
 	\item \textbf{\sffamily Corrispondenza tra il sistema e il mondo reale} \\
 	      L'applicazione dovrebbe utilizzare un linguaggio semplice, con termini che gli utenti comprendono facilmente, evitando il termini tecnici.
@@ -634,47 +634,49 @@ Per strutturare il nostro modello di dominio, abbiamo adottato l'approccio "Thre
 \end{itemize}
 \newpage
 
-\subsection*{Registrazione e accesso}
-\input{assets/modelli_di_dominio/registrazione_accesso.tex}
-\newpage
+{ 	% NON RIMUOVERE LE PARENTESI GRAFFE CHE RACCHIUDONO GLI UML
+	% blocco dei diagrammi uml in cui l'interlina è impostata a 1.2
+	\setstretch{1.2}
+	\subsection*{Registrazione e accesso}
+	\input{assets/modelli_di_dominio/registrazione_accesso.tex}
+	\newpage
 
-\subsection*{Creazione asta silenziosa}
-\input{assets/modelli_di_dominio/creazione_asta_silenziosa.tex}
-\newpage
+	\subsection*{Creazione asta silenziosa}
+	\input{assets/modelli_di_dominio/creazione_asta_silenziosa.tex}
+	\newpage
 
-\subsection*{Creazione asta all'inglese}
-\input{assets/modelli_di_dominio/creazione_asta_inglese.tex}
-\newpage
+	\subsection*{Creazione asta all'inglese}
+	\input{assets/modelli_di_dominio/creazione_asta_inglese.tex}
+	\newpage
 
-\subsection*{Creazione asta al ribasso}
-\input{assets/modelli_di_dominio/creazione_asta_ribasso.tex}
-\newpage
+	\subsection*{Creazione asta al ribasso}
+	\input{assets/modelli_di_dominio/creazione_asta_ribasso.tex}
+	\newpage
 
-\subsection*{Puntare su un'asta silenziosa}
-\input{assets/modelli_di_dominio/puntare_asta_silenziosa.tex}
-\newpage
+	\subsection*{Puntare su un'asta silenziosa}
+	\input{assets/modelli_di_dominio/puntare_asta_silenziosa.tex}
+	\newpage
 
-\subsection*{Puntare su un'asta all'inglese}
-\input{assets/modelli_di_dominio/puntare_asta_inglese.tex}
-\newpage
+	\subsection*{Puntare su un'asta all'inglese}
+	\input{assets/modelli_di_dominio/puntare_asta_inglese.tex}
+	\newpage
 
-\subsection*{Puntare su un'asta al ribasso}
-\input{assets/modelli_di_dominio/puntare_asta_ribasso.tex}
-\newpage
+	\subsection*{Puntare su un'asta al ribasso}
+	\input{assets/modelli_di_dominio/puntare_asta_ribasso.tex}
+	\newpage
 
-\subsection*{Storico aste (terminate)}
-\input{assets/modelli_di_dominio/closed_auction_history.tex}
-\newpage
+	\subsection*{Storico aste (terminate)}
+	\input{assets/modelli_di_dominio/closed_auction_history.tex}
+	\newpage
 
-\subsection*{Asta silenziosa: accettazione di un'offerta}
-\input{assets/modelli_di_dominio/accept_silent_auction_offer.tex}
-\newpage
+	\subsection*{Asta silenziosa: accettazione di un'offerta}
+	\input{assets/modelli_di_dominio/accept_silent_auction_offer.tex}
+	\newpage
 
-\subsection*{Modifica profilo}
-\input{assets/modelli_di_dominio/edit_profile.tex}
-\newpage
+	\subsection*{Modifica profilo}
+	\input{assets/modelli_di_dominio/edit_profile.tex}
+	\newpage
 
-\subsection*{Filtraggio e ricerca di un'asta}
-\input{assets/modelli_di_dominio/filtering_and_searching_auction.tex}
-\newpage
-
+	\subsection*{Filtraggio e ricerca di un'asta}
+	\input{assets/modelli_di_dominio/filtering_and_searching_auction.tex}
+} % NON RIMUOVERE

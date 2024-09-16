@@ -1,4 +1,5 @@
 \documentclass[12pt]{report}
+% \includeonly{chapters/documento_di_design}
 % xelatex documentazione.tex; makeglossaries documentazione; xelatex documentazione.tex 
 
 \input{settings/packages.tex}
@@ -6,7 +7,7 @@
 \input{settings/page_style.tex}
 \input{settings/commands.tex}
 
-\linespread{1.2} % imposta lo spazio tra le righe
+% \linespread{1.2} % imposta lo spazio tra le righe
 \fontdimen2\font=0.5em % imposta spazio tra le parole
 \renewcommand{\cellalign}{tl} % allinea le celle delle tabularx in alto a sinistra
 
@@ -37,6 +38,7 @@
 
 \include{chapters/introduzione}
 \include{chapters/documento_dei_requisiti_software}
+\include{chapters/documento_di_design}
 
 % \clearpage
 % \printglossarywithchapter

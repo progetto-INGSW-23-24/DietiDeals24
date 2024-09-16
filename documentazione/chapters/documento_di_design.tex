@@ -1,0 +1,72 @@
+\chapter{Documento di design}
+In questa sezione vengono illustrate le scelte architetturali e i design pattern adottati nel software.
+Un design pattern è una soluzione generale e collaudata per risolvere problemi ricorrenti che si incontrano durante la progettazione di software.
+Questi pattern possono migliorare la comprensione del codice, la manutenzione e la scalabilità di un'applicazione.
+
+\bigskip\bigskip
+
+\section{Architettura del Software}
+L'architettura del software è suddivisa tra il client e il server, con il client sviluppato in Flutter e il server utilizzando Supabase.
+
+\subsection{Client}
+L'applicazione client è sviluppata utilizzando Flutter, un framework open-source di Google per la creazione di applicazioni mobili nativamente compilate. Flutter consente di creare un'interfaccia utente ricca e reattiva, mantenendo un'alta performance sia su Android che iOS.\meskip
+Il client sarà responsabile della visualizzazione dei dati e dell'interazione con l'utente.\\
+La gestione dello stato sarà gestito tramite il pattern MVC (Model-View-Controller) integrato con i DAO (Data Access Object). 
+Questo approccio separa la logica di business, la gestione dello stato e l'accesso ai dati, migliorando la manutenibilità e la testabilità del codice.
+
+\subsection{Server}
+Il server backend è basato su Supabase, una piattaforma open-source che fornisce una serie di servizi backend tra cui autenticazione, database e storage. Il database si basa su PostgreSQL e offre un'interfaccia RESTful e in tempo reale per interagire con i dati.
+
+\subsection{Interazione tra Client e Server}
+La comunicazione con il server è implementata tramite le API RESTful, generate automaticamente da Supabase, utilizzando l'apposito pacchetto Flutter. Questo non solo velocizza lo sviluppo, ma garantisce un alta affidabilità delle API altamente collaudate e sicure.
+
+
+\section{Design pattern utilizzati}
+
+\subsection{Model-View-Controller (MVC)}
+Il pattern Model-View-Controller (MVC) è stato scelto per strutturare l'applicazione in modo da separare le responsabilità e facilitare la manutenzione del codice.
+
+\begin{itemize}
+	\item \textbf{Model}: Gestisce i dati dell'applicazione ed è responsabile della notifica alla View quando i dati cambiano. Questo permette alla View di aggiornarsi e riflettere le modifiche senza dover essere a conoscenza dei dettagli di come i dati sono gestiti.
+
+	\item \textbf{View}: Si occupa della presentazione e dell'interfaccia utente. Mostra i dati agli utenti e aggiorna la visualizzazione in risposta alle modifiche del Model.
+
+    \item \textbf{Controller}: Funziona da intermediario tra il Model e la View. Gestisce gli input degli utenti e aggiorna il Model e la View di conseguenza.
+\end{itemize}
+
+\subsection{Data Access Object (DAO)}
+Il Data Access Object (DAO) è stato implementato per separare la logica di accesso ai dati dalla logica di business, semplificando la gestione e l'accesso ai dati.
+
+\newpage
+\section{Analisi delle scelte tecnologiche utilizzate}
+\subsection{Client: Confronto con altre tecnologie}
+La decisione di utilizzare flutter è stata presa dopo un'analisi delle opzioni disponibili, considerando vari fattori come la produttività, le prestazioni e la compatibilità.
+
+\subsubsection{React Native}
+\begin{itemize}
+    \item \textbf{Prestazioni:} Flutter compila il codice direttamente in codice nativo, mentre React Native utilizza un ponte per comunicare tra JavaScript e codice nativo. Questo può portare a prestazioni superiori in Flutter.
+    \item \textbf{Coerenza dell'UI:} Flutter utilizza un motore di rendering proprietario, che garantisce una coerenza visiva su tutte le piattaforme, mentre React Native si basa sui componenti nativi, il che può comportare variazioni tra iOS e Android.
+\end{itemize}
+
+\subsubsection{Sviluppo nativo (Java/Kotlin per Android, Swift per iOS)}
+\begin{itemize}
+    \item \textbf{Cross-Platform:} Flutter consente di scrivere un solo codice per entrambe le piattaforme, riducendo i tempi e i costi di sviluppo rispetto alla scrittura di codice separato.
+    \item \textbf{Consistenza dell'Interfaccia:} Flutter offre un controllo totale sul rendering e sulla consistenza dell'interfaccia su entrambe le piattaforme.
+    \item \textbf{Aggiornamenti e Manutenzione:} La manutenzione di una singola codebase è generalmente più semplice e meno costosa.
+\end{itemize}
+
+\subsection{Server: confronto con altre tecnologie}
+Supabase è stato scelte per la sua semplice e veloce integrazione con applicazioni di ogni tipo e per le sue caratteristiche di scalabilità e sicurezza.
+
+\subsubsection{Firebase}
+\begin{itemize}
+    \item \textbf{Open Source:} Supabase è completamente open-source, il che offre maggiore trasparenza e controllo rispetto a Firebase, che è una piattaforma proprietaria.
+    \item \textbf{Database SQL:} Supabase utilizza PostgreSQL, un database relazionale SQL, che consente query complesse e supporta una vasta gamma di operazioni SQL. Firebase, al contrario, utilizza un database NoSQL (Firestore), che può essere limitato per applicazioni che richiedono operazioni SQL avanzate.
+\end{itemize}
+
+\subsubsection{AWS Amplify}
+\begin{itemize}
+    \item \textbf{Semplicità di Utilizzo:} Supabase è progettato per essere facile da configurare e utilizzare, con un'interfaccia utente intuitiva e una rapida configurazione, mentre AWS Amplify può risultare complesso.
+    \item \textbf{Costi:} Supabase offre un piano gratuito generoso e una struttura di costi più prevedibile rispetto ad AWS Amplify, dove i costi possono aumentare rapidamente con l'uso e la scalabilità.
+\end{itemize}
+
