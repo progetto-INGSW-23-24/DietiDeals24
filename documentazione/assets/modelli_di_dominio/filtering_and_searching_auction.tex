@@ -17,7 +17,7 @@
 
 			\umlclass[type=Control, below=2cm of HomePage]{HomePageController}{}{
 				+ filterAuctionsByDescription(patternText: String) \\
-				+ filterAuctionsByCategory(category: String) \\
+				+ filterAuctionsByCategory(category: Category) \\
 			}
 
 			\umlclass[type=Boundary, right=2cm of HomePageController]{Feedback}{
@@ -27,7 +27,7 @@
 			\umlclass[type=Entity, below=2cm of HomePageController]{User}{}{}
 
 			\umlclass[type=Entity, below=2cm of HomePageController, xshift=-6cm]{Auction}{
-				+ category: String \\
+				+ category: Category[] \\
 				+ description: String \\
 			}{}
 
