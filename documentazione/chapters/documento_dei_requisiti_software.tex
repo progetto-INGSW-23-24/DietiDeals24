@@ -38,8 +38,8 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 		      \item asta all'inglese
 		            \begin{itemize}[label={\tiny$-$}]
 			            \item il venditore inserisce una base d'asta (visibile a tutti)
-			            \item ***(dubbio colloquio 3)*** L'asta include un intervallo di tempo fisso per presentare nuove offerte (di default 1 ora)
-			            \item ***(dubbio colloquio 3)*** L'asta include una soglia di rialzo (di default 10€)
+			            \item L'asta include un intervallo di tempo fisso per presentare nuove offerte (di default 1 ora), l'utente può impostare un valore a sua scelta
+			            \item L'asta include una soglia di rialzo (di default 10€), l'utente può impostare un valore a sua scelta
 		            \end{itemize}
 		      \item l'utente può creare un asta al ribasso e inserisce:
 		            \begin{itemize}[label={\tiny$-$}]
@@ -117,7 +117,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 
 		            se è la prima offerta può offrire il prezzo base, altrimenti deve presentare un'offerta più alta rispetto al prezzo corrente.
 
-		            Il rialzo dev'essere un multiplo della soglia impostata nell'offerta ***(dubbio colloquio, dev'essere di X alla volta o anche multipli di X?)***
+		            Il rialzo dev'essere un multiplo della soglia impostata nell'offerta. Ad esempio, se la soglia impostasta è 10, il cliente può rialzare di 10, 20, 30, \dots
 
 		      \item quando viene presentata un'offerta, il timer viene resettato e il prezzo corrente viene aggiornato
 		      \item allo scadere del timer:
@@ -131,7 +131,9 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 	      \begin{itemize}[label={\tiny$\blacksquare$}]
 		      \item al raggiungimento del timer, il prezzo verrà decrementato dell'importo previsto e il timer riparte
 		      \item il prodotto è venduto al primo acquirente che presenta un'offerta
-		      \item Se il prezzo raggiunge il prezzo minimo segreto senza offerte, l'asta fallisce e il venditore riceve una notifica. ***(dubbio colloquio l'offerta fallisce al raggiungimento del prezzo minimo oppure fallisce al ribasso successivo al prezzo minimo?)***
+		      \item Se il prezzo raggiunge il prezzo minimo segreto senza offerte, l'asta fallisce e il venditore riceve una notifica.
+
+			            {\small (L'offerta fallisce al raggiungimento del prezzo minimo e non al ribasso successivo al prezzo minimo)}
 	      \end{itemize}
 	\item asta silenziosa:
 	      \begin{itemize}[label={\tiny$\blacksquare$}]
