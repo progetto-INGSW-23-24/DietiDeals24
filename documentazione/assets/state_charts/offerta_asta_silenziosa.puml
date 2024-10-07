@@ -1,0 +1,45 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam state {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+state I as "Auction Selection" {
+}
+
+
+state V as "SilentAuction Selected" {
+
+    state S as "Amount empty" {
+    }
+
+    state B as "Amount not empty" {
+    }
+    state Y as "Offer Error" {
+    }
+    state W as "Offer Created" {
+    }
+
+    [*] --> S 
+    Y -right-> S: retry()
+    B --> W: confirmOffer() [offer is valid]
+    S --> B: insertAmount() 
+    B --> Y: confirmOffer() [offer is not valid]\t
+    W --> [*]
+}
+
+[*] --> I
+
+I --> V: selectAuction() \t\t \n [auction is SilentAuction] \t
+V --> I: cancel()
+
+I --> I: selectAuction() \t\t \n [auction is not SilentAuction] \t
+
+V --> [*]
+@enduml
