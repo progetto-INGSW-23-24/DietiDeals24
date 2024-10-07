@@ -1,0 +1,76 @@
+@startuml
+skinparam sequence {
+  ActorBorderColor Black
+  ActorBackgroundColor DarkGray
+
+  ParticipantBackgroundColor #e6e6e6
+  ParticipantBorderColor DarkGray
+
+  BackgroundColor Red
+  FontColor Black
+  ArrowColor Black
+  LifeLineBorderColor Gray
+  LifeLineBackgroundColor LightGray
+}
+
+actor "Utente" as U
+participant "<<boundary>>\n EditProfilePage" as EPP
+participant "<<control>>\n ProfileController" as C
+participant "<<entity>>\n SocialLink" as SL
+participant "<<boundary>>\n Feedback" as F
+participant "<<entity>>\n HttpService" as H
+participant "<<entity>>\n Server" as DB
+
+activate U
+activate C
+U -> EPP : 1. "Add Social Link"
+activate EPP
+EPP -> C : 2. updateProfile()
+||20||
+C -> EPP : 3. getValues()
+||20||
+C -> C : 4. checkValues()
+||20||
+
+alt all values are correct
+    C -> H : 5. createHttpRequest()
+    activate H
+    H ->> DB : 6. sendHttpRequest()
+    activate DB
+    DB -->> H : return httpResponse
+    deactivate DB
+    ||20||
+
+    H -> H : 7. processHttpResponse()
+    H --> C : return response
+    ||20||
+    
+    deactivate H
+    C -> SL : 8. <<create>>
+    activate SL
+    SL --> C : return socialLink
+    deactivate SL
+    ||20||
+
+    C --> F : 9. showSuccessMessage()
+    activate F
+    deactivate F
+    ||20||
+
+    C -> EPP : 10. closeEditProfilePage()
+    ||20||
+
+else some values are incorrect
+    C -> F : 5. showErrorMessage()
+    activate F
+    deactivate F
+    ||20||
+    
+end
+||20||
+
+deactivate EPP
+deactivate C
+deactivate U
+
+@enduml

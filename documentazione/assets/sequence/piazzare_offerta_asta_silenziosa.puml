@@ -1,0 +1,84 @@
+@startuml
+skinparam sequence {
+  ActorBorderColor Black
+  ActorBackgroundColor DarkGray
+
+  ParticipantBackgroundColor #e6e6e6
+  ParticipantBorderColor DarkGray
+
+  BackgroundColor Red
+  FontColor Black
+  ArrowColor Black
+  LifeLineBorderColor Gray
+  LifeLineBackgroundColor LightGray
+}
+
+actor "Utente" as U
+participant "<<boundary>>\n SilentAuctionDetailPage" as ADP
+participant "<<control>>\n AuctionOfferController" as C
+participant "<<entity>>\n SilentAuctionOffer" as AO
+participant "<<boundary>>\n Feedback" as F
+participant "<<entity>>\n HttpService" as H
+participant "<<entity>>\n Server" as DB
+
+activate U
+activate C
+U -> ADP : 1. "Make an Offer"
+activate ADP
+
+ADP -> C : 2. createSilentAuctionOffer()
+||20||
+
+alt auction is active
+    C -> ADP : 3. getAuctionOfferInformations()
+    C -> C : 4. checkOfferInformations()
+    ||20||
+
+    alt price is ok 
+        C -> H : 5. createHttpRequest() 
+        activate H 
+        H ->> DB : 6. sendHttpRequest()
+        activate DB 
+        DB -->> H : return HttpResponse
+        deactivate DB 
+        ||20||
+
+        H -> H : 7. ProcessResponse()
+        H --> C : return response
+        ||20||
+  
+        C --> AO : 8. <<create>> 
+        activate AO 
+        AO --> C : return SilentAuctionOffer
+        deactivate AO
+        ||20||
+  
+        deactivate H 
+        C -> F : 9. showSuccessMessage() 
+        activate F 
+        deactivate F
+        ||20||
+
+    else price is not ok 
+        C -> F : 7. showErrorMessage()
+        activate F 
+        deactivate F
+        ||20||
+
+    end 
+    ||20||
+
+else auction is sold 
+    C -> F : 3. showErrorMessage()
+    activate F 
+    deactivate F 
+    ||20||
+end
+||20||
+
+deactivate ADP 
+deactivate C 
+deactivate U
+
+
+@enduml

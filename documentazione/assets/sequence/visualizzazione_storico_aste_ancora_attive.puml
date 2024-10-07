@@ -1,0 +1,56 @@
+@startuml
+skinparam sequence {
+  ActorBorderColor Black
+  ActorBackgroundColor DarkGray
+
+  ParticipantBackgroundColor #e6e6e6
+  ParticipantBorderColor DarkGray
+
+  BackgroundColor Red
+  FontColor Black
+  ArrowColor Black
+  LifeLineBorderColor Gray
+  LifeLineBackgroundColor LightGray
+}
+
+actor "Utente" as U
+participant "<<boundary>>\n AuctionHistoryPage" as AHP
+participant "<<control>>\n HistoryAuctionController" as C
+participant "<<boundary>>\n CreatedAuctionDetailPage" as EP
+participant "<<entity>>\n Auctions" as SL
+participant "<<entity>>\n HttpService" as H
+participant "<<entity>>\n Server" as DB
+
+activate U
+activate C
+U -> AHP : 1. "view created auctions"
+||20||
+activate AHP
+AHP -> C : 2. loadCreatedAuctions()
+||20||
+C -> H : 3. createHttpRequest()
+activate H
+H ->> DB : 4. sendHttpRequest()
+activate DB
+DB -->> H : return httpResponse
+deactivate DB
+||20||
+H -> H : 5. processHttpResponse()
+H --> C : return response
+||20||
+deactivate H
+C -> SL : 6. <<create>>
+activate SL
+SL --> C : return auctions
+deactivate SL
+||20||
+C -> EP : 7. loadPage(auctions)
+activate EP
+||20||
+
+deactivate EP
+deactivate AHP
+deactivate C
+deactivate U
+
+@enduml

@@ -1,0 +1,87 @@
+@startuml
+skinparam sequence {
+  ActorBorderColor Black
+  ActorBackgroundColor DarkGray
+
+  ParticipantBackgroundColor #e6e6e6
+  ParticipantBorderColor DarkGray
+
+  BackgroundColor Red
+  FontColor Black
+  ArrowColor Black
+  LifeLineBorderColor Gray
+  LifeLineBackgroundColor LightGray
+}
+
+actor "Utente" as U
+participant "<<boundary>>\n SilentAuctionPage" as PA
+participant "<<control>>\n AuctionController" as CA
+participant "<<entity>>\n SilentAuction" as A
+participant "<<boundary>>\n CreateSilentAuctionForm" as F
+participant "<<boundary>>\n Feedback" as N
+participant "<<entity>>\n HttpService" as B
+participant "<<entity>>\n Server" as DB
+
+activate U
+U -> PA : 1. "create Silent Auction"
+activate PA
+PA -> CA : 2. createSilentAuction()
+activate CA
+
+CA -> F : 3. showForm()
+activate F
+deactivate F
+
+U -> F : 4. "fill the form"
+activate F
+CA -> F : 5. getFormData()
+F --> CA : return form data
+deactivate F
+
+||20||
+
+CA -> CA : 6. processFormData() 
+alt input correct
+    CA -> B : 7. makeHttpRequest()
+    activate B 
+    B ->> DB : 8. sendHttpRequest()
+    activate DB
+    DB -->> B : return httpResponse
+    deactivate DB
+    B -> B : 9. processHttpResponse()
+    B --> CA : return message
+    deactivate B   
+
+    alt response ok
+        CA -> A : 10. <<create>>
+        activate A 
+        A --> CA : return Auction
+        deactivate A
+        CA -> N : 9. showSuccessNotification()
+        activate N
+        N --> PA : return successMessage
+        deactivate N
+        ||20||
+    else server returned an error
+        CA -> N : 9. showErrorNotification()
+        activate N
+        N --> PA : return errorMessage
+        deactivate N
+        ||20||
+    end 
+else input not correct
+    CA -> N : 9. showErrorNotification()
+    activate N
+    N --> PA : return errorMessage
+    deactivate N
+    ||20||
+end
+
+||20||
+
+deactivate CA
+deactivate PA
+deactivate U
+
+
+@enduml

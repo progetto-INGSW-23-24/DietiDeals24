@@ -20,7 +20,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 	\setstretch{1.2}
 	\item l'utente può registrare un nuovo account
 	\item l'utente può utilizzare un'account da lui registrato per accedere al sistema
-	\item l'utente può registrarsi utilizando credenziali di terze pari (es.: google, facebook, …)
+	\item l'utente può registrarsi utilizzando credenziali di terze parti (es.: google, facebook, …)
 	\item l'utente può personalizzare il proprio profilo (non obbligatorio):
 	      \begin{itemize}[label={\tiny$\blacksquare$}]
 		      \renewcommand{\labelitemi}{\tiny$\blacksquare$}
@@ -306,7 +306,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 		\textbf{\large\sffamily Use Case {\ttfamily \#}02}                               & \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth+95.8pt\relax}|}{\textbf{\large\sffamily Offerta asta silenziosa}}                                                                                                                                                                                                                   \\
 		\hline Goal in Context                                                           & \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth+95.8pt\relax}|}{ L'utente vuole piazzare un'offerta per un'asta silenziosa }                                                                                                                                                                                                        \\
 		\hline Preconditions                                                             & \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth+95.8pt\relax}|}{ L'utente deve aver effettuato l'accesso e si deve trovare nella pagina "Home"}                                                                                                                                                                                     \\
-		\hline Success End Conditions                                                    & \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth+95.8pt\relax}|}{ L'utente piazzà correttamente l'offerta che sarà visibile al venditore }                                                                                                                                                                                           \\
+		\hline Success End Conditions                                                    & \multicolumn{3}{>{\raggedright\arraybackslash}p{\dimexpr 0.5\linewidth+95.8pt\relax}|}{ L'utente piazza correttamente l'offerta che sarà visibile al venditore }                                                                                                                                                                                           \\
 
 		\hline \rowcolor[HTML]{DCDCDC}
 		\multirow{1}{*}{}{\textbf{\sffamily Description}}                                & \textbf{\sffamily Step}                                                                                                                                                & \textbf{\sffamily User Action}                                                   & \textbf{\sffamily System}                                                                      \\
@@ -682,3 +682,19 @@ Per strutturare il nostro modello di dominio, abbiamo adottato l'approccio "Thre
 	\subsection*{Filtraggio e ricerca di un'asta}
 	\input{assets/modelli_di_dominio/filtering_and_searching_auction.tex}
 } % NON RIMUOVERE
+
+\newpage
+\section{Sequence diagram di due casi d'uso}
+\subsection{Creazione asta all'inglese}
+\includegraphics[width=\textwidth]{assets/sequence/creazione_asta_inglese.eps}
+\newpage
+
+\subsection{Piazzare un'offerta su un'asta al ribasso}
+\includegraphics[width=\textwidth]{assets/sequence/piazzare_offerta_a_ribasso.eps}
+\newpage
+
+\section{Progettazione degli Event-Based Statecharts}
+\subsection{Nome state chart 1}
+\subsection{Nome state chart 2}
+\subsection{Nome state chart 3}
+\subsection{Nome state chart 4}

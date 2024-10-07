@@ -26,8 +26,6 @@ Le risposte vengono restituite al client in formato JSON, garantendo così una f
 
 La comunicazione tra client e server avviene attraverso richieste asincrone, che permettono al client di ottenere dati aggiornati in tempo reale senza interrompere l'esperienza dell'utente.
 
-
-
 \section{Design pattern utilizzati}
 
 \subsection{Model-View-Controller (MVC)}
@@ -45,6 +43,7 @@ Il pattern Model-View-Controller (MVC) è stato scelto per strutturare l'applica
 Il Data Access Object (DAO) è stato implementato per separare la logica di accesso ai dati dalla logica di business, semplificando la gestione e l'accesso ai dati.
 
 \newpage
+
 \section{Analisi delle scelte tecnologiche utilizzate}
 \subsection{Client: Confronto con altre tecnologie}
 La decisione di utilizzare flutter è stata presa dopo un'analisi delle opzioni disponibili, considerando vari fattori come la produttività, le prestazioni e la compatibilità.
@@ -76,3 +75,16 @@ Nel nostro caso, abbiamo impiegato RDS con un database PostgreSQL.
 
 \subsubsection{Express.js}
 \textit{Express.js} è un framework per applicazioni web Node.js, utilizzato per sviluppare la logica applicativa del nostro backend. Ci ha permesso di implementare un'API RESTful in modo rapido ed efficiente, gestendo le richieste tra il client e il server e interfacciandosi con il database ospitato su RDS.
+
+\section{Diagrammi di Sequenza di Design}
+\subsection{Caso d'uso: Creazione Asta Silenziosa}
+\includegraphics[width=\textwidth]{assets/sequence/creazione_asta_silenziosa.eps}
+
+\subsection{Caso d'uso: Offerta Asta Silenziosa}
+\includegraphics[width=\textwidth]{assets/sequence/piazzare_offerta_asta_silenziosa.eps}
+
+\subsection{Caso d'uso: Aggiunta Link Social}
+\includegraphics[width=\textwidth]{assets/sequence/aggiungere_link_social.eps}
+
+\subsection{Caso d'uso: Storico Aste create}
+\includegraphics[width=\textwidth]{assets/sequence/visualizzazione_storico_aste_ancora_attive.eps}

@@ -1,0 +1,60 @@
+@startuml
+skinparam sequence {
+  ActorBorderColor Black
+  ActorBackgroundColor DarkGray
+
+  ParticipantBackgroundColor #e6e6e6
+  ParticipantBorderColor DarkGray
+
+  BackgroundColor Red
+  FontColor Black
+  ArrowColor Black
+  LifeLineBorderColor Gray
+  LifeLineBackgroundColor LightGray
+}
+
+actor "Utente" as U
+participant "<<boundary>>\n DescendingAuctionDetailPage" as PA
+participant "<<control>>\n AuctionOfferController" as CA
+participant "<<entity>>\n DescendingAuction" as A
+participant "<<entity>>\n DescendingAuctionOffer" as O
+participant "<<boundary>>\n Feedback" as N
+
+activate U
+activate CA
+U -> PA : 1. "click on Acquista"
+activate PA
+PA -> CA : 2. createDescendingAuctionOffer(price)
+alt price is correct
+    CA -> O : 3. <<create>>
+    activate O
+    O --> CA : return DescendingAuctionOffer
+    deactivate O
+    ||20||
+
+    CA -> A : 4. <<update>>
+    activate A
+    A --> CA : return DescendingAuction
+    deactivate A
+    ||20||
+
+    CA -> N : 5. showSuccessNotification()
+    activate N
+    N --> PA : return successMessage
+    deactivate N
+    ||20||
+
+else price is incorrect
+    CA -> N : 6. showErrorNotification()
+    activate N
+    N --> PA : return errorMessage
+    deactivate N
+    ||20||
+end
+
+||20||
+
+deactivate U
+deactivate PA
+deactivate CA
+@enduml
