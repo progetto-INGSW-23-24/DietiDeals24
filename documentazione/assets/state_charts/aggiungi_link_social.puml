@@ -1,0 +1,50 @@
+@startuml
+
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam state {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+state V as "View Profile" {
+
+}
+
+V: entry/ loadUserInformations()
+
+state S as "Updating Profile" {
+
+state Y as "new Link Empty" {
+}
+
+state W as "new Link created" {
+}
+
+state G as "Input Error" {
+}
+
+[*] --> Y: clickAddnewLinkButton()
+Y -right-> W: addLink() [link is correct] \t
+Y --> G: addLink() [link is not correct]\t\t
+G --> Y: clickConfirmButton() 
+W --> [*]
+
+}
+state I as "Profile Updated" {
+}
+
+[*] --> V
+
+V --> S: editProfile()
+S --> V: cancel()
+
+S --> I: save()
+
+S: entry/ initializeForm()
+
+I --> [*]
+@enduml

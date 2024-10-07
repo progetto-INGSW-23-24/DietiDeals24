@@ -1,0 +1,32 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam state {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+state S as "View Auction History" {
+
+    state V as "View Created Auctions History" {
+    }
+
+    state X as "View Buyed Auctions History" {
+    }
+
+    [*] --> V 
+
+    X --> V: slideToCreatedAuctions() 
+
+    V --> X: slideToBuyedAuctions()\t
+}
+
+[*] --> S[H]: viewAuctionHistory()
+
+S: entry/ loadUserAuctions()
+
+S --> [*]
+@enduml
