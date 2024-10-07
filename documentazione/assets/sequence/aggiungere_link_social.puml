@@ -1,5 +1,7 @@
 @startuml
+skinparam shadowing false
 skinparam sequence {
+  Shadowing false
   ActorBorderColor Black
   ActorBackgroundColor DarkGray
 

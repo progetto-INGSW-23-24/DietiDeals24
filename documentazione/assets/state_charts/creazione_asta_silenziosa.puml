@@ -1,0 +1,46 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam state {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+state "auctionType Selection" as AT {
+}
+state "SilentAuction Creation" as AC {
+ state "Filling Form" as F {
+  [*] -right-> ImageNotSelected
+  ImageNotSelected -right-> ImageSelected: selectImage()
+  ImageSelected -right-> [*]
+  -- 
+  [*] -right-> DescriptionEmpty
+  DescriptionEmpty -right-> DescriptionNotEmpty: insertDescription()
+  DescriptionNotEmpty -right-> [*]
+  -- 
+  [*] -right-> CategoryNotSelected
+  CategoryNotSelected -right-> CategorySelected: selectCategory()
+  CategorySelected -right-> [*]
+  --
+  [*] -right-> ExpirationDateTimeNotSelected
+  ExpirationDateTimeNotSelected -right-> ExpirationDateTimeSelected: selectExpirationDateTime()
+  ExpirationDateTimeSelected -right-> [*]
+  
+ }
+ [*] -right-> F 
+ F -up-> FormError: createAuction() [Input Not Correct]
+ FormError --> F: confirm()
+ F -right-> [*]: createAuction() [input Correct]
+}
+AC: entry/ inizialize Form()
+AC: exit/ showPopupMessage()
+[*] --> AT: showAuctionTypeSelectionPage()\n [userIsLogged]
+AT --> AC: showSilentAuctionPage()\n [SilentAuctionSelected]
+AT --> AT: showSilentAuctionPage()\n [no type selected]
+AC --> AuctionCreated
+AC --> AT: cancelButton()
+AuctionCreated --> [*]
+@enduml
