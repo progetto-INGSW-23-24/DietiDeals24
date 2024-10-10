@@ -60,61 +60,55 @@ Per strutturare il nostro modello di dominio, abbiamo adottato l'approccio "Thre
 \newpage
 \section{Sequence diagram di due casi d'uso}
 \subsection{Creazione asta all'inglese}
-Questo Sequence Diagram descrive il processo di creazione di un'asta all'inglese. 
-\\ L'attore principale è l'utente venditore che inizia il processo di creazione dell'asta inserendo i dati all'interno del form e cliccando il pulsante di creazione dell'asta.
-\\ A questo punto il sistema si occupa di gestire tutta la logica di creazione e di restituire un messaggio all'utente.   
-\\
+Questo Sequence Diagram descrive il processo di creazione di un'asta all'inglese. \\
+L'attore principale è l'utente venditore che inizia il processo di creazione dell'asta inserendo i dati all'interno del form e cliccando il pulsante di creazione dell'asta.\\
+A questo punto il sistema si occupa di gestire tutta la logica di creazione e di restituire un messaggio all'utente.\bskip
 \includegraphics[width=\textwidth]{assets/sequence/creazione_asta_inglese.pdf}
 \newpage
 
 \subsection{Piazzare un'offerta su un'asta al ribasso}
-Questo Sequence descrive il processo di creazione di un'offerta per un'asta al ribasso. 
-\\ L'attore principale è l'utente acquirente che inizia il processo di creazione dell'offerta inserendo i dati all'interno del form e cliccando il pulsante di conferma. 
-\\ Il sistema, dopo aver elaborato i dati, restituisce un messaggio all'utente. 
-\\
+Questo Sequence descrive il processo di creazione di un'offerta per un'asta al ribasso.\\
+L'attore principale è l'utente acquirente che inizia il processo di creazione dell'offerta inserendo i dati all'interno del form e cliccando il pulsante di conferma.\\
+Il sistema, dopo aver elaborato i dati, restituisce un messaggio all'utente.\bskip
 \includegraphics[width=\textwidth]{assets/sequence/piazzare_offerta_a_ribasso.pdf}
 \newpage
 
 \section{Progettazione degli Event-Based Statecharts}
-Gli statecharts (o statechart diagrams) sono un tipo di diagramma utilizzato 
-per rappresentare il comportamento dinamico di un sistema attraverso 
+Gli statecharts (o statechart diagrams) sono un tipo di diagramma utilizzato
+per rappresentare il comportamento dinamico di un sistema attraverso
 i suoi stati e le transizioni tra di essi.
 \subsection{Creazione asta silenziosa}
-Il seguente statechart descrive il comportamento del sistema durante la creazione di un'asta silenziosa. 
-\\ Per prima cosa, l'utente si trova all'interno della schermata di selezione della tipologia d'asta da creare. 
-Dopo aver selezionato la tipologia d'asta corretta, il sistema passa alla pagina di creazione dell'asta, la quale contiene il form in cui inserire tutte le informazioni necessarie. Una volta che l'utente ha selezionato e inserito tutte le informazioni correttamente, l'asta viene creata e il sistema si aggiorna. 
-\\
+Il seguente statechart descrive il comportamento del sistema durante la creazione di un'asta silenziosa.\\
+Per prima cosa, l'utente si trova all'interno della schermata di selezione della tipologia d'asta da creare.
+Dopo aver selezionato la tipologia d'asta corretta, il sistema passa alla pagina di creazione dell'asta, la quale contiene il form in cui inserire tutte le informazioni necessarie. Una volta che l'utente ha selezionato e inserito tutte le informazioni correttamente, l'asta viene creata e il sistema si aggiorna.\bskip
 \includegraphics[width=\textwidth]{assets/state_charts/creazione_asta_silenziosa.pdf}
 \newpage
 
 \subsection{Offerta asta silenziosa}
-\begin{center}
 Questo statechart descrive il comportamento del sistema durante la creazione di un'offerta per il tipo d'asta silenziosa.
-Per prima cosa, l'utente seleziona l'asta cui desidera piazzare un'offerta. 
-\\ Dopo aver effettuato la selezione il sistema passa alla schermata di dettaglio dell'asta, in cui è possibile inserire un'offerta.
+Per prima cosa, l'utente seleziona l'asta cui desidera piazzare un'offerta.\\
+Dopo aver effettuato la selezione il sistema passa alla schermata di dettaglio dell'asta, in cui è possibile inserire un'offerta.
 Se l'offerta è corretta, il sistema si aggiorna correttamente.
-\\ 
-\includegraphics[width=0.75\textwidth]{assets/state_charts/offerta_asta_silenziosa.pdf}
+\begin{center}
+	\includegraphics[width=0.75\textwidth]{assets/state_charts/offerta_asta_silenziosa.pdf}
 \end{center}
 \newpage
 
 \subsection{Aggiungi link social}
-\begin{center}
-Questo statechart descrive il comportamento del sistema durante l'aggiunta di un link social. Nello specico, il sistema si trova in uno stato iniziale in cui è possibile visualizzare il profilo utente. 
+Questo statechart descrive il comportamento del sistema durante l'aggiunta di un link social. Nello specico, il sistema si trova in uno stato iniziale in cui è possibile visualizzare il profilo utente.
 Dopodiche, il sistema passa nello stato di aggiornamento del profilo, in cui è possibile aggiungere un nuovo link social.
-Dopo che il link è stato aggiunto, l'utente salva le modifiche e il sistema passa nello stato di profilo aggiornato. 
-\\ 
-\includegraphics[width=.75\textwidth]{assets/state_charts/aggiungi_link_social.pdf}
+Dopo che il link è stato aggiunto, l'utente salva le modifiche e il sistema passa nello stato di profilo aggiornato.
+\begin{center}
+	\includegraphics[width=.75\textwidth]{assets/state_charts/aggiungi_link_social.pdf}
 \end{center}
 \newpage
 
 \subsection{Visualizzare aste create}
-\begin{center}
-Questo statechart descrive il comportamento del sistema quando l'utente vuole visualizzare lo storico delle aste create. 
+Questo statechart descrive il comportamento del sistema quando l'utente vuole visualizzare lo storico delle aste create.
 In particolare, il sistema può trovarsi in due sottostati diversi: schermata dello storico delle aste create, e la schermata dello storico delle aste acquistate.
-Il sistema si ricorda dell'ultima schermata in cui si trovava precedentemente, che è di default la schermata delle aste create. 
-Da ognuna di queste due schermate è possibile passare all'altra. 
-\\
-\includegraphics[width=.75\textwidth]{assets/state_charts/visualizzare_aste_create.pdf}
+Il sistema si ricorda dell'ultima schermata in cui si trovava precedentemente, che è di default la schermata delle aste create.
+Da ognuna di queste due schermate è possibile passare all'altra.
+\begin{center}
+	\includegraphics[width=.75\textwidth]{assets/state_charts/visualizzare_aste_create.pdf}
 \end{center}
 \newpage
