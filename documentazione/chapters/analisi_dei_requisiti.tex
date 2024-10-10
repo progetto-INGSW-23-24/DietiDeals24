@@ -1,4 +1,4 @@
-\chapter{Documento dei requisiti software}
+\chapter{Analisi dei Requisiti}
 
 \section{Obiettivi della Raccolta dei Requisiti}
 % Descrizione: Spiega l'importanza della raccolta dei requisiti e come è stata condotta (interviste, workshop, analisi documentale).
@@ -267,6 +267,42 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 
 \newpage
 
+\section{Individuazione del target degli utenti.}
+L'identificazione del target degli utenti è cruciale per garantire che l'applicazione soddisfi le esigenze e le aspettative dei suoi utilizzatori.
+
+\subsection{Descrizione del Servizio}
+DietiDeals24 è un'applicazione progettata per facilitare la compravendita di beni e servizi tramite aste online.
+Grazie a questa piattaforma, gli utenti possono partecipare a aste in tempo reale e avere l'opportunità di acquistare prodotti e servizi a prezzi vantaggiosi.\sskip
+Di fatto l'applicazione si configura all'interno del settore e-commerce e questo ci ha permesso di fare analisi sul target degli utenti.
+
+\subsection{Target Demografici}
+\begin{itemize}
+	\item \textbf{Età}:
+	      Il target principale si colloca nella fascia d'età tra 25 e 45 anni, che rappresenta una parte significativa degli acquirenti online, in particolare quelli che partecipano a piattaforme di e-commerce e aste online.
+	\item \textbf{Genere}:
+	      Tendenzialmente bilanciato, con una leggera prevalenza maschile nelle aste online, ma con un interesse crescente anche tra le donne.
+	\item \textbf{Reddito}:
+	      Medio, con utenti che cercano offerte vantaggiose ma che dispongono di un potere d'acquisto tale da consentire la partecipazione a aste su prodotti di valore medio-alto.
+\end{itemize}
+
+\subsection{Target Geografici}
+Utenti che vivono in città e usano spesso Internet per fare acquisti online.
+Questi servizi sono più diffusi nelle zone dove la connessione è buona e la maggior parte delle persone sa usare bene la tecnologia.
+
+\subsection{Target Comportamentali}
+Gli utenti che acquistano online tramite un servizio di aste solitamente cercano i seguenti benefici:
+\begin{itemize}
+	\item \textbf{Risparmio}: acquistare prodotti a prezzi più bassi grazie alla natura competitiva delle aste.
+	\item \textbf{Prodotti esclusivi}: Possibilità di accedere a beni rari o di valore, che potrebbero non essere facilmente disponibili nei negozi tradizionali.
+	\item \textbf{Soddisfazione della vittoria}: Vincere un'asta può essere un'esperienza gratificante e motivante.
+\end{itemize}
+
+\subsection{Fonti}
+Statista, "E-commerce user demographics in 2023", disponibile su \url{www.statista.com} .\\
+Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerce360.com} .
+
+\newpage
+
 \section{Tabelle di Cockburn}
 \subsection{Creazione asta silenziosa}
 \begin{table}[H]
@@ -389,7 +425,7 @@ L'obiettivo principale di questa fase è identificare, analizzare e documentare 
 
 \newpage
 
-\section{Mockup del Software}
+\section{Prototipazione visuale attraverso Mockup}
 I mock-up sono stati progettati con Figma. Di seguito viene riportata la lista completa dei prototipi realizzati.
 
 \subsection{Accesso e registrazione}
@@ -529,40 +565,6 @@ I tre mockup in basso, mostrano le pagine dei diversi tipi di creazione di un'as
 
 \newpage
 
-\section{Individuazione del target degli utenti.}
-L'identificazione del target degli utenti è cruciale per garantire che l'applicazione soddisfi le esigenze e le aspettative dei suoi utilizzatori.
-
-\subsection*{Descrizione del Servizio}
-DietiDeals24 è un'applicazione progettata per facilitare la compravendita di beni e servizi tramite aste online.
-Grazie a questa piattaforma, gli utenti possono partecipare a aste in tempo reale e avere l'opportunità di acquistare prodotti e servizi a prezzi vantaggiosi.\sskip
-Di fatto l'applicazione si configura all'interno del settore e-commerce e questo ci ha permesso di fare analisi sul target degli utenti.
-
-\subsection*{Target Demografici}
-\begin{itemize}
-	\item \textbf{Età}:
-	      Il target principale si colloca nella fascia d'età tra 25 e 45 anni, che rappresenta una parte significativa degli acquirenti online, in particolare quelli che partecipano a piattaforme di e-commerce e aste online.
-	\item \textbf{Genere}:
-	      Tendenzialmente bilanciato, con una leggera prevalenza maschile nelle aste online, ma con un interesse crescente anche tra le donne.
-	\item \textbf{Reddito}:
-	      Medio, con utenti che cercano offerte vantaggiose ma che dispongono di un potere d'acquisto tale da consentire la partecipazione a aste su prodotti di valore medio-alto.
-\end{itemize}
-
-\subsection*{Target Geografici}
-Utenti che vivono in città e usano spesso Internet per fare acquisti online.
-Questi servizi sono più diffusi nelle zone dove la connessione è buona e la maggior parte delle persone sa usare bene la tecnologia.
-
-\subsection*{Target Comportamentali}
-Gli utenti che acquistano online tramite un servizio di aste solitamente cercano i seguenti benefici:
-\begin{itemize}
-	\item \textbf{Risparmio}: acquistare prodotti a prezzi più bassi grazie alla natura competitiva delle aste.
-	\item \textbf{Prodotti esclusivi}: Possibilità di accedere a beni rari o di valore, che potrebbero non essere facilmente disponibili nei negozi tradizionali.
-	\item \textbf{Soddisfazione della vittoria}: Vincere un'asta può essere un'esperienza gratificante e motivante.
-\end{itemize}
-
-\subsection*{Fonti}
-Statista, "E-commerce user demographics in 2023", disponibile su \url{www.statista.com} .\\
-Digital Commerce 360, "Who shops online?" disponibile su \url{www.digitalcommerce360.com} .
-
 \section{Valutazione dell'usabilità a priori}
 La valutazione dell'usabilità a priori è un importante fase nella progettazione di interfacce utente. Questo processo permette di identificare potenziali problemi di usabilità prima che il prodotto venga rilasciato.\meskip
 Uno dei metodi che abbiamo utilizzato è stato l'applicazione delle euristiche di Nielsen.\sskip
@@ -625,122 +627,26 @@ Le euristiche di Nielsen sono un insieme di dieci principi generali per la proge
 	      Quest'euristica viene rispettata andando a creare degli alert con messaggi d'errore chiari all'interno dell'interfaccia.
 \end{enumerate}
 
-\section{Specifica dei requisiti}
-\subsection{Modelli di dominio}
-Quando si sviluppa un progetto software, è importante avere una chiara comprensione del sistema che si sta costruendo. Un modello di dominio aiuta a definire gli elementi principali del sistema, come interagiscono tra loro e come vengono rappresentati nel software.\sskip
-Per strutturare il nostro modello di dominio, abbiamo adottato l'approccio "Three Object Type", che suddivide gli oggetti del sistema in tre categorie principali:
-\begin{itemize}
-	\item \textbf{Boundary}: Questi oggetti gestiscono l'interazione tra il sistema e gli attori esterni, come utenti o altri sistemi. Fungono da intermediari tra l'interfaccia utente e la logica interna dell'applicazione.
-	\item \textbf{Control}: Questi oggetti implementano la logica di business e coordinano il flusso di dati tra gli oggetti Boundary e Entity. I Control mantengono separati gli aspetti di presentazione e quelli relativi ai dati, rendendo il sistema più facile da mantenere e migliorare.
-	\item \textbf{Entity}: Questi oggetti sono utilizzati per modellare gli oggetti del mondo reale o concettuale che il sistema deve gestire e che devono essere persistenti, cioè mantenere il loro stato nel tempo.
-\end{itemize}
-\newpage
+\subsection{Glossario}
 
-{ 	% NON RIMUOVERE LE PARENTESI GRAFFE CHE RACCHIUDONO GLI UML
-	% blocco dei diagrammi uml in cui l'interlina è impostata a 1.2
-	\setstretch{1.2}
-	\subsection*{Registrazione e accesso}
-	\input{assets/modelli_di_dominio/registrazione_accesso.tex}
-	\newpage
+\begin{description}
 
-	\subsection*{Creazione asta silenziosa}
-	\input{assets/modelli_di_dominio/creazione_asta_silenziosa.tex}
-	\newpage
+    \item[UML (Unified Modeling Language)] Un linguaggio di modellazione grafica standard utilizzato per visualizzare, specificare, costruire e documentare gli artefatti di un sistema software. Include vari tipi di diagrammi, come diagrammi delle classi, dei casi d'uso e delle sequenze.
 
-	\subsection*{Creazione asta all'inglese}
-	\input{assets/modelli_di_dominio/creazione_asta_inglese.tex}
-	\newpage
+    \item[Mockup] Rappresentazione statica dell'interfaccia utente di un'applicazione, utilizzata per mostrare il layout visivo e simulare l'aspetto dell'interfaccia prima della realizzazione finale.
 
-	\subsection*{Creazione asta al ribasso}
-	\input{assets/modelli_di_dominio/creazione_asta_ribasso.tex}
-	\newpage
+    \item[Euristiche di Nielsen] Dieci principi di usabilità definiti da Jakob Nielsen per guidare la progettazione di interfacce utente, che includono visibilità dello stato del sistema, corrispondenza tra il sistema e il mondo reale, controllo dell'utente, prevenzione degli errori e altri criteri.
 
-	\subsection*{Puntare su un'asta silenziosa}
-	\input{assets/modelli_di_dominio/puntare_asta_silenziosa.tex}
-	\newpage
+    \item[Casi d'uso] Tecnica di analisi funzionale che descrive, in termini di attori e scenari, come il sistema interagisce con gli utenti per soddisfare determinati obiettivi. Ogni caso d'uso documenta le interazioni tra l'attore e il sistema.
 
-	\subsection*{Puntare su un'asta all'inglese}
-	\input{assets/modelli_di_dominio/puntare_asta_inglese.tex}
-	\newpage
+    \item[Tabelle di Cockburn] Modello di rappresentazione dei casi d'uso proposto da Alistair Cockburn. Ogni tabella contiene informazioni come titolo, attore principale, precondizioni, flusso principale di eventi, estensioni e risultati attesi, rendendo i casi d'uso più strutturati e comprensibili.
 
-	\subsection*{Puntare su un'asta al ribasso}
-	\input{assets/modelli_di_dominio/puntare_asta_ribasso.tex}
-	\newpage
+    \item[Attore] Entità esterna al sistema che interagisce con esso. Può essere un utente umano o un altro sistema che richiede servizi al software.
 
-	\subsection*{Storico aste (terminate)}
-	\input{assets/modelli_di_dominio/closed_auction_history.tex}
-	\newpage
+    \item[Precondizione] Condizione che deve essere vera prima dell'esecuzione di un caso d'uso affinché il sistema possa funzionare correttamente.
 
-	\subsection*{Asta silenziosa: accettazione di un'offerta}
-	\input{assets/modelli_di_dominio/accept_silent_auction_offer.tex}
-	\newpage
+    \item[Flusso principale] Sequenza di azioni standard attraverso le quali il sistema realizza il caso d'uso in condizioni ideali, senza errori o eccezioni.
 
-	\subsection*{Modifica profilo}
-	\input{assets/modelli_di_dominio/edit_profile.tex}
-	\newpage
+    \item[Mockup ad alta fedeltà] Versione dettagliata del mockup che include quasi tutte le funzionalità grafiche e interattive previste nel prodotto finale.
 
-	\subsection*{Filtraggio e ricerca di un'asta}
-	\input{assets/modelli_di_dominio/filtering_and_searching_auction.tex}
-} % NON RIMUOVERE
-
-\newpage
-\section{Sequence diagram di due casi d'uso}
-\subsection{Creazione asta all'inglese}
-Questo Sequence Diagram descrive il processo di creazione di un'asta all'inglese. 
-\\ L'attore principale è l'utente venditore che inizia il processo di creazione dell'asta inserendo i dati all'interno del form e cliccando il pulsante di creazione dell'asta.
-\\ A questo punto il sistema si occupa di gestire tutta la logica di creazione e di restituire un messaggio all'utente.   
-\\
-\includegraphics[width=\textwidth]{assets/sequence/creazione_asta_inglese.pdf}
-\newpage
-
-\subsection{Piazzare un'offerta su un'asta al ribasso}
-Questo Sequence descrive il processo di creazione di un'offerta per un'asta al ribasso. 
-\\ L'attore principale è l'utente acquirente che inizia il processo di creazione dell'offerta inserendo i dati all'interno del form e cliccando il pulsante di conferma. 
-\\ Il sistema, dopo aver elaborato i dati, restituisce un messaggio all'utente. 
-\\
-\includegraphics[width=\textwidth]{assets/sequence/piazzare_offerta_a_ribasso.pdf}
-\newpage
-
-\section{Progettazione degli Event-Based Statecharts}
-Gli statecharts (o statechart diagrams) sono un tipo di diagramma utilizzato 
-per rappresentare il comportamento dinamico di un sistema attraverso 
-i suoi stati e le transizioni tra di essi.
-\subsection{Creazione asta silenziosa}
-Il seguente statechart descrive il comportamento del sistema durante la creazione di un'asta silenziosa. 
-\\ Per prima cosa, l'utente si trova all'interno della schermata di selezione della tipologia d'asta da creare. 
-Dopo aver selezionato la tipologia d'asta corretta, il sistema passa alla pagina di creazione dell'asta, la quale contiene il form in cui inserire tutte le informazioni necessarie. Una volta che l'utente ha selezionato e inserito tutte le informazioni correttamente, l'asta viene creata e il sistema si aggiorna. 
-\\
-\includegraphics[width=\textwidth]{assets/state_charts/creazione_asta_silenziosa.pdf}
-\newpage
-
-\subsection{Offerta asta silenziosa}
-\begin{center}
-Questo statechart descrive il comportamento del sistema durante la creazione di un'offerta per il tipo d'asta silenziosa.
-Per prima cosa, l'utente seleziona l'asta cui desidera piazzare un'offerta. 
-\\ Dopo aver effettuato la selezione il sistema passa alla schermata di dettaglio dell'asta, in cui è possibile inserire un'offerta.
-Se l'offerta è corretta, il sistema si aggiorna correttamente.
-\\ 
-\includegraphics[width=0.75\textwidth]{assets/state_charts/offerta_asta_silenziosa.pdf}
-\end{center}
-\newpage
-
-\subsection{Aggiungi link social}
-\begin{center}
-Questo statechart descrive il comportamento del sistema durante l'aggiunta di un link social. Nello specico, il sistema si trova in uno stato iniziale in cui è possibile visualizzare il profilo utente. 
-Dopodiche, il sistema passa nello stato di aggiornamento del profilo, in cui è possibile aggiungere un nuovo link social.
-Dopo che il link è stato aggiunto, l'utente salva le modifiche e il sistema passa nello stato di profilo aggiornato. 
-\\ 
-\includegraphics[width=.75\textwidth]{assets/state_charts/aggiungi_link_social.pdf}
-\end{center}
-\newpage
-
-\subsection{Visualizzare aste create}
-\begin{center}
-Questo statechart descrive il comportamento del sistema quando l'utente vuole visualizzare lo storico delle aste create. 
-In particolare, il sistema può trovarsi in due sottostati diversi: schermata dello storico delle aste create, e la schermata dello storico delle aste acquistate.
-Il sistema si ricorda dell'ultima schermata in cui si trovava precedentemente, che è di default la schermata delle aste create. 
-Da ognuna di queste due schermate è possibile passare all'altra. 
-\\
-\includegraphics[width=.75\textwidth]{assets/state_charts/visualizzare_aste_create.pdf}
-\end{center}
-\newpage
+\end{description}

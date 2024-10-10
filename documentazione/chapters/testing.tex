@@ -270,3 +270,88 @@ group('Boundary Value Analysis Tests for Auction Parameters', () {
 
 
 \section{Valutazione dell'Usabilità sul campo}
+
+La valutazione dell'usabilità sul campo si concentra sull'analisi del sistema \textbf{DietiDeals24} nel suo ambiente reale d'uso. Abbiamo utilizzato le stesse euristiche di Nielsen già applicate nella valutazione a priori, per verificare come il sistema supporti effettivamente l'esperienza utente, oltre a raccogliere feedback attraverso test pratici e analisi dei dati raccolti durante l'uso reale del prodotto.
+
+\subsection{Obiettivi della valutazione sul campo}
+
+L'obiettivo principale è verificare se i principi di usabilità previsti a priori siano effettivamente rispettati e se il sistema soddisfi le aspettative di usabilità degli utenti. Inoltre, si vuole identificare se emergono problematiche inattese nell'uso reale che non erano state rilevate nella fase precedente.
+
+\subsection{Metodologia}
+
+\subsubsection{Test con utenti reali}
+Abbiamo selezionato un gruppo rappresentativo di utenti, inclusi venditori e acquirenti, che hanno utilizzato il sistema nel contesto reale. Le attività testate includono:
+\begin{itemize}
+    \item Registrazione di un account (sia come venditore che come compratore)
+    \item Creazione e gestione di aste
+    \item Ricerca di aste tramite filtri e parole chiave
+    \item Partecipazione a un'asta attiva
+    \item Modifica del profilo
+\end{itemize}
+
+Durante i test, abbiamo monitorato:
+\begin{itemize}
+    \item \textbf{Tempo impiegato} per completare ogni attività
+    \item \textbf{Numero di errori} commessi durante le operazioni
+    \item \textbf{Feedback soggettivi} tramite questionari post-attività, per valutare il livello di soddisfazione e difficoltà percepite.
+\end{itemize}
+
+\subsubsection{Analisi dei file di log}
+Abbiamo raccolto e analizzato i log del sistema per monitorare l'attività degli utenti, identificare errori comuni, inefficienze nei percorsi di navigazione e verificare la frequenza di utilizzo di funzioni critiche, come il sistema di ricerca e i filtri delle aste.
+
+\subsection{Valutazione delle euristiche di Nielsen}
+
+Di seguito riportiamo un'analisi euristica basata sui dati raccolti, confrontata con la valutazione a priori.
+
+\subsubsection{1. Visibilità dello stato del sistema}
+\textbf{Valutazione a priori:} Era stato previsto l’uso di alert e messaggi di conferma per garantire all'utente la visibilità dello stato del sistema.\\
+\textbf{Valutazione sul campo:} I test sul campo hanno confermato che i messaggi di conferma sono efficaci nel fornire feedback immediati. Tuttavia, alcuni utenti hanno riportato che i messaggi a volte sono troppo brevi o poco evidenti, soprattutto quando si verificano errori durante la partecipazione a un'asta. Nei log, abbiamo rilevato alcuni casi in cui gli utenti hanno ripetuto l'azione di invio dell'offerta perché non erano sicuri che fosse stata registrata correttamente.\\
+\textbf{Intervento suggerito:} Aumentare la durata o la visibilità dei messaggi di conferma, soprattutto in caso di errore.
+
+\subsubsection{2. Corrispondenza tra il sistema e il mondo reale}
+\textbf{Valutazione a priori:} L'interfaccia è stata progettata per utilizzare un linguaggio semplice e comprensibile, evitando termini tecnici.\\
+\textbf{Valutazione sul campo:} Gli utenti hanno apprezzato l'uso di un linguaggio chiaro, ma nei questionari alcuni hanno suggerito che la terminologia relativa alle diverse tipologie di aste potrebbe essere ulteriormente semplificata, soprattutto per gli utenti principianti.\\
+\textbf{Intervento suggerito:} Migliorare le spiegazioni delle tipologie di aste attraverso l'uso di tooltip o una breve guida introduttiva.
+
+\subsubsection{3. Controllo dell'utente e libertà}
+\textbf{Valutazione a priori:} Era stata prevista l'implementazione di dialog di conferma per annullare o confermare azioni critiche.\\
+\textbf{Valutazione sul campo:} I dialog di conferma sono risultati utili, ma alcuni utenti hanno segnalato che in certe operazioni, come la modifica del profilo o la cancellazione di un'asta, sarebbe preferibile avere opzioni di annullamento più visibili.\\
+\textbf{Intervento suggerito:} Aggiungere un'opzione "annulla" più evidente nei flussi di azione complessi.
+
+\subsubsection{4. Coerenza e standard}
+\textbf{Valutazione a priori:} L'interfaccia era stata progettata utilizzando i componenti di Material Design, garantendo una coerenza nelle interazioni.\\
+\textbf{Valutazione sul campo:} Non sono emersi problemi significativi di coerenza, e gli utenti hanno elogiato la familiarità dell'interfaccia, soprattutto quelli che avevano già esperienza con altre applicazioni basate su Material Design.
+
+\subsubsection{5. Prevenzione degli errori}
+\textbf{Valutazione a priori:} Era stato implementato un sistema di dialog per prevenire errori comuni.\\
+\textbf{Valutazione sul campo:} Durante i test, abbiamo notato una riduzione significativa degli errori grazie alla presenza di dialog di conferma. Tuttavia, i log hanno mostrato che alcuni utenti hanno inserito offerte non valide in alcune aste, indicando che i controlli di input potrebbero essere migliorati.\\
+\textbf{Intervento suggerito:} Rafforzare i controlli di input nelle offerte e fornire messaggi d’errore più dettagliati.
+
+\subsubsection{6. Riconoscimento piuttosto che ricordo}
+\textbf{Valutazione a priori:} Era stato previsto l'uso di info button per aiutare gli utenti a riconoscere le funzionalità chiave, come la creazione di aste.\\
+\textbf{Valutazione sul campo:} Gli info button sono stati utilizzati correttamente dagli utenti, ma alcuni hanno segnalato che potrebbero essere resi più visibili o interattivi per fornire maggiori informazioni in tempo reale.\\
+\textbf{Intervento suggerito:} Migliorare la visibilità degli info button e offrire spiegazioni più dettagliate in caso di dubbi.
+
+\subsubsection{7. Flessibilità ed efficienza}
+\textbf{Valutazione a priori:} Il sistema era stato progettato per essere utilizzabile sia da principianti che da utenti esperti.\\
+\textbf{Valutazione sul campo:} Gli utenti principianti hanno trovato l'interfaccia facile da usare, mentre gli utenti esperti hanno apprezzato la possibilità di utilizzare scorciatoie e funzionalità avanzate come i filtri. Tuttavia, alcuni suggeriscono l'aggiunta di funzionalità personalizzabili, come la possibilità di salvare le ricerche.\\
+\textbf{Intervento suggerito:} Aggiungere opzioni avanzate per gli utenti esperti, come ricerche salvate e scorciatoie personalizzabili.
+
+\subsubsection{8. Design estetico e minimalista}
+\textbf{Valutazione a priori:} L'interfaccia era stata progettata per essere pulita e priva di elementi inutili.\\
+\textbf{Valutazione sul campo:} L'aspetto minimalista è stato molto apprezzato e non sono stati segnalati problemi di sovraccarico informativo.
+
+\subsubsection{9. Aiuto e documentazione}
+\textbf{Valutazione a priori:} Era stato previsto un sistema di aiuto e suggerimenti accessibile tramite info button.\\
+\textbf{Valutazione sul campo:} Gli utenti hanno trovato utile la documentazione disponibile, ma alcuni hanno suggerito di rendere più accessibili le guide per principianti, soprattutto in fase di registrazione e creazione delle prime aste.\\
+\textbf{Intervento suggerito:} Introdurre una guida interattiva per i nuovi utenti.
+
+\subsubsection{10. Gestione degli errori}
+\textbf{Valutazione a priori:} Era stato previsto un sistema di alert con messaggi chiari.\\
+\textbf{Valutazione sul campo:} I log hanno mostrato alcuni errori ripetuti, indicando che gli utenti non sempre capiscono la causa di un errore. Ad esempio, i messaggi relativi alle offerte non valide potrebbero essere più espliciti.\\
+\textbf{Intervento suggerito:} Fornire spiegazioni più dettagliate nei messaggi di errore per evitare confusione.
+
+\subsection{Conclusioni e raccomandazioni}
+
+La valutazione sul campo ha confermato che molte delle previsioni fatte nella valutazione a priori sono state rispettate, garantendo una buona usabilità del sistema. Tuttavia, l'uso reale del prodotto ha evidenziato alcune aree di miglioramento, soprattutto in termini di visibilità dei messaggi di conferma, gestione degli errori e personalizzazione per utenti esperti.
+
