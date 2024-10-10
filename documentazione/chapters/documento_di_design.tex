@@ -76,15 +76,33 @@ Nel nostro caso, abbiamo impiegato RDS con un database PostgreSQL.
 \subsubsection{Express.js}
 \textit{Express.js} è un framework per applicazioni web Node.js, utilizzato per sviluppare la logica applicativa del nostro backend. Ci ha permesso di implementare un'API RESTful in modo rapido ed efficiente, gestendo le richieste tra il client e il server e interfacciandosi con il database ospitato su RDS.
 
+\pagebreak
 \section{Diagrammi di Sequenza di Design}
 \subsection{Caso d'uso: Creazione Asta Silenziosa}
+Il seguente Sequence Diagram descrive il processo di creazione di un'Asta Silenziosa. 
+\\ L'attore principale è l'utente venditore, che compila il form. Il sistema elabora i dati e invia una richiesta al server. 
+\\ Se la richiesta di creazione è andata a buon fine, il sistema si aggiorna correttamente, mantenendo cosi la coerenza con il server esterno, e restituisce un messaggio all'utente mediante l'interfaccia grafica. 
+Altrimenti, elabora il messaggio di errore ricevuto dal server e restituisce il messaggio d'errore corrispondente all'utente.   
+\\
 \includegraphics[width=\textwidth]{assets/sequence/creazione_asta_silenziosa.pdf}
 
+\pagebreak
 \subsection{Caso d'uso: Offerta Asta Silenziosa}
+Il seguente Sequence Diagram descrive il processo di creazione di un'offerta per l'Asta Silenziosa.
+\\ L'attore principale è l'utente acquirente, che inserisce i dati necessari alla creazione dell'offerta, compilando il form, e invia i dati al sistema.
+\\ Il sistema verifica che l'asta sia attiva, e invia una richiesta al server per la creazione dell'offerta, restituendo l'esito all'utente, mediante l'interfaccia grafica.  
+\\
 \includegraphics[width=\textwidth]{assets/sequence/piazzare_offerta_asta_silenziosa.pdf}
 
+\pagebreak 
 \subsection{Caso d'uso: Aggiunta Link Social}
+Il seguente Sequence Diagram descrive il processo di aggiunta di un nuovo link social all'interno della pagina profilo dell'utente.
+\\ Il sistema prende, in generale, tutti i valori presenti nel form, e verifica che siano corretti. A questo punto invia una richiesta al server e restituisce un risultato. Nel caso l'esito sia positivo, aggiorna il model correttamente e notifica l'utente. 
+\\
 \includegraphics[width=\textwidth]{assets/sequence/aggiungere_link_social.pdf}
 
+\pagebreak
 \subsection{Caso d'uso: Storico Aste create}
+Il seguente Sequence Diagram descrive il processo per cui l'utente visualizza lo storico delle aste create. Analogamente ai sequence mostrati in precedenza, l'utente naviga all'interno della schermata e il sistema invia una richiesta al server che restituirà le aste create all'utente. 
+\\
 \includegraphics[width=\textwidth]{assets/sequence/visualizzazione_storico_aste_ancora_attive.pdf}
