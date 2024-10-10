@@ -49,3 +49,39 @@
 
 \usepackage{setspace}  % Per impostare l'interlinea
 \setstretch{1.5} % Impostazioni per l'interlinea
+
+\usepackage{amsmath}
+\usepackage{xcolor} 
+
+\usepackage{listings} % For code snippets
+% Set up listings for Dart code
+\lstdefinelanguage{Dart}{
+  keywords={class, static, void, if, return, test, group, expect},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={double, bool},
+  ndkeywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{gray}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  language=Dart,
+  basicstyle=\footnotesize\ttfamily,
+  numbers=left,
+  numberstyle=\scriptsize,
+  stepnumber=1,
+  numbersep=5pt,
+  tabsize=2,
+  extendedchars=true,
+  breaklines=true,
+  showspaces=false,
+  showtabs=false,
+  showstringspaces=false,
+  frame=single,
+}

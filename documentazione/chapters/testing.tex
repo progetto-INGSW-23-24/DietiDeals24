@@ -1,0 +1,269 @@
+\chapter{Testing e Valutazione sul campo dell'Usabilità}
+
+\section{Unit Testing}
+
+All'interno del progetto lo Unit Testing è stato implementato seguendo la metodologia \textbf{Black Box.} Per l'implementazione di suddetti test è stato utilizzato il framework di testing nativo di Flutter che segue il modello xUnit come richiesto dal committente.
+
+\subsection{checkEmailAndPassword}
+
+Questo metodo ha la funzione di verificare che l'email e la password inserite in fase di registrazione rispettino i criteri di dominio per poter essere considerate valide.\meskip
+Analizziamo quelle che sono le classi di equivalenza con le quali andremo a realizzare il testing:
+
+\subsubsection*{EMAIL}
+
+\begin{itemize}
+	\item A1: L'email rispetta il pattern dell'espressione regolare (classe valida)
+	\item A2: L'email non rispetta il pattern dell'espressione regolare (classe non valida)
+\end{itemize}
+
+\subsubsection*{PASSWORD}
+
+\begin{itemize}
+	\item B1: La password contiene da 0 a 7 caratteri (classe non valida)
+	\item B2: La password contiene da 8 a 16 caratteri (classe valida)
+	\item B3: La password contiene più di 16 caratteri (classe non valida)
+\end{itemize}\medskip
+
+\noindent
+Utilizziamo come criterio di copertura R-WECT (Weak Robust Equivalence Class Testing) il quale ci garantisce un buon grado di copertura evitando però la scrittura di molti test case. In definitiva, un buon compromesso rispetto ai criteri SECT e WECT.\meskip
+Testiamo ogni classe un'unica volta escludendo le combinazioni di classi non valide, otteniamo 3 test cases: A1 x B1, A2 x B2, A1 x B3.
+
+\begin{lstlisting}[language=Dart]
+group('Test checkEmailAndPassword con R-WECT', () {
+  // Caso 1: Email valida, password troppo breve
+  test('Email valida e password troppo breve (A1, B1)', () {
+    expect(checkEmailAndPassword('test@example.com', 'short'), isFalse);
+  });
+
+  // Caso 2: Email non valida, password valida
+  test('Email non valida e password valida (A2, B2)', () {
+    expect(checkEmailAndPassword('invalid-email', 'validPass1'), isFalse);
+  });
+
+  // Caso 3: Email valida, password troppo lunga
+  test('Email valida e password troppo lunga (A1, B3)', () {
+    expect(checkEmailAndPassword('test@example.com', 'thisPasswordIsWayTooLong'), isFalse);
+  });
+});
+    \end{lstlisting}
+\newpage
+\subsection{checkPriceDifference}
+
+Questo metodo verifica che nella creazione dell'Asta al Ribasso, il prezzo minimo sia minore del prezzo iniziale e che siano entrambi maggiori di zero.\meskip
+Analizziamo le classi di equivalenza:
+
+\subsubsection*{minPrice}
+
+\begin{itemize}
+	\item A1: Il prezzo minimo è maggiore di zero e minore di startingPrice (classe valida)
+	\item A2: Il prezzo minimo è minore di zero (classe non valida)
+	\item A3: Il prezzo minimo è maggiore di zero e maggiore di startingPrice (classe non valida)
+\end{itemize}
+
+\subsubsection*{startingPrice}
+
+\begin{itemize}
+	\item B1: Il prezzo iniziale è maggiore di zero (classe valida)
+	\item B2: Il prezzo iniziale è minore di zero (classe non valida)
+\end{itemize}\medskip
+
+\noindent
+Potremmo utilizzare anche per questo metodo, il criterio di copertura R-WECT. Chiediamoci però, cosa succederebbe se il prezzo minimo fosse un valore molto vicino allo zero?
+
+Consideriamo quindi una tecnica in questo caso migliore per effettuare il testing, il criterio \textbf{Boundary Values}, ossia il criterio dei valori limite. In questo caso, il numero di test case è pari a 9.\meskip
+Per ogni parametro andiamo a testare: Il valore minimo, appena sopra il minimo, appena sotto al massimo, valore massimo e un test case con tutti i valori medi.
+
+\begin{lstlisting}[language=Dart]
+class PriceValidator {
+  static bool validatePrices(double minPrice, double startingPrice) {
+    if (minPrice <= 0 || startingPrice <= 0) return false;
+    if (minPrice >= startingPrice) return false;
+    return true;
+  }
+}
+
+group('Test dei valori limite per checkPriceDifference', () {
+  // Test con valori medi
+  test('Test 1: Valori medi', () {
+    expect(PriceValidator.validatePrices(50, 100), true);
+  });
+
+  // Test per minPrice (mantenendo startingPrice costante a 100)
+  test('Test 2: minPrice al minimo', () {
+    expect(PriceValidator.validatePrices(0.01, 100), true);
+  });
+
+  test('Test 3: minPrice appena sopra il minimo', () {
+    expect(PriceValidator.validatePrices(0.02, 100), true);
+  });
+
+  test('Test 4: minPrice appena sotto il massimo', () {
+    expect(PriceValidator.validatePrices(98, 100), true);
+  });
+
+  test('Test 5: minPrice al massimo', () {
+    expect(PriceValidator.validatePrices(99, 100), true);
+  });
+
+  // Test per startingPrice (mantenendo minPrice costante a 50)
+  test('Test 6: startingPrice al minimo', () {
+    expect(PriceValidator.validatePrices(50, 50.01), true);
+  });
+
+  test('Test 7: startingPrice appena sopra il minimo', () {
+    expect(PriceValidator.validatePrices(50, 50.02), true);
+  });
+
+  test('Test 8: startingPrice appena sotto il massimo', () {
+    expect(PriceValidator.validatePrices(50, 999.99), true);
+  });
+
+  test('Test 9: startingPrice al massimo', () {
+    expect(PriceValidator.validatePrices(50, 1000), true);
+  });
+
+  // Test aggiuntivi per casi non validi (per completezza)
+  test('Test extra: minPrice negativo', () {
+    expect(PriceValidator.validatePrices(-1, 100), false);
+  });
+
+  test('Test extra: startingPrice negativo', () {
+    expect(PriceValidator.validatePrices(50, -1), false);
+  });
+
+  test('Test extra: minPrice maggiore di startingPrice', () {
+    expect(PriceValidator.validatePrices(100, 50), false);
+  });
+});
+    \end{lstlisting}
+\newpage
+\subsection{checkNewOfferPrice}
+
+Questo metodo verifica che il nuovo importo per un'offerta in Asta all'Inglese sia maggiore di zero e maggiore dell'ultima offerta.\meskip
+Analizziamo le classi di equivalenza:
+
+\subsubsection*{newAmount}
+
+\begin{itemize}
+	\item A1: La nuova offerta è maggiore di zero e maggiore della precedente (classe valida)
+	\item A2: La nuova offerta è minore di zero (classe non valida)
+	\item A3: La nuova offerta è maggiore di zero ma minore della precedente (classe non valida)
+\end{itemize}
+
+\subsubsection*{previousAmount}
+
+\begin{itemize}
+	\item B1: La vecchia offerta è maggiore di zero (classe valida)
+	\item B2: La vecchia offerta è minore di zero (classe non valida)
+\end{itemize}\medskip
+
+\noindent
+Utilizziamo il criterio di copertura R-WECT sopra citato. Andiamo ad effettuare i seguenti test cases: A1 x B1, A2 x B1, A3 x B1, A1 x B2. Il numero di test cases necessari sarà 4.
+
+\begin{lstlisting}[language=Dart]
+class OfferValidator {
+  static bool validateOffer(double newAmount, double previousAmount) {
+    if (newAmount <= 0 || previousAmount <= 0) return false;
+    if (newAmount <= previousAmount) return false;
+    return true;
+  }
+}
+
+group('R-WECT Tests for Bid Validation', () {
+  // Test Case 1: A1 x B1 (tutte le classi valide)
+  test('Test Case 1 (A1 x B1): Nuova offerta valida e vecchia offerta valida', () {
+    // newAmount > previousAmount > 0
+    expect(OfferValidator.validateOffer(100, 50), true);
+  });
+
+  // Test Case 2: A2 x B1 (newAmount negativo)
+  test('Test Case 2 (A2 x B1): Nuova offerta negativa', () {
+    // newAmount < 0, previousAmount > 0
+    expect(OfferValidator.validateOffer(-10, 50), false);
+  });
+
+  // Test Case 3: A3 x B1 (newAmount minore del precedente)
+  test('Test Case 3 (A3 x B1): Nuova offerta minore della precedente', () {
+    // 0 < newAmount < previousAmount
+    expect(OfferValidator.validateOffer(40, 50), false);
+  });
+
+  // Test Case 4: A1 x B2 (previousAmount negativo)
+  test('Test Case 4 (A1 x B2): Vecchia offerta negativa', () {
+    // newAmount > 0, previousAmount < 0
+    expect(OfferValidator.validateOffer(100, -10), false);
+  });
+});
+    \end{lstlisting}
+\newpage
+\subsection{checkBaseAndRaiseThreshold}
+
+Questo metodo verifica che nella creazione dell'asta all'inglese la base d'asta e la soglia di rialzo siano entrambi maggiori di zero.\meskip
+Analizziamo le classi di equivalenza:
+
+\subsubsection*{basePrice}
+
+\begin{itemize}
+	\item A1: La base d'asta è minore di zero (classe non valida)
+	\item A2: La base d'asta è maggiore di zero (classe valida)
+\end{itemize}
+
+\subsubsection*{increaseThreshold}
+
+\begin{itemize}
+	\item B1: La soglia di rialzo è minore di zero (classe non valida)
+	\item B2: La soglia di rialzo è maggiore di zero (classe valida)
+\end{itemize}\medskip
+
+\noindent
+Utilizziamo il criterio di copertura \textbf{Boundary Values}, ossia dei valori limiti. Il numero di test cases è sempre 9.
+
+\begin{lstlisting}[language=Dart]
+class AuctionValidator {
+  static bool validateAuctionParameters(double basePrice, double increaseThreshold) {
+    if (basePrice <= 0 || increaseThreshold <= 0) return false;
+    return true;
+  }
+}
+
+group('Boundary Value Analysis Tests for Auction Parameters', () {
+  // Test con valori nominali (il +1)
+  test('Test 1: Valori nominali', () {
+    expect(AuctionValidator.validateAuctionParameters(100, 10), true);
+  });
+
+  // Test per basePrice (primi 4 test, mantenendo increaseThreshold costante)
+  test('Test 2: basePrice al minimo', () {
+    expect(AuctionValidator.validateAuctionParameters(0.01, 10), true);
+  });
+
+  test('Test 3: basePrice appena sopra il minimo', () {
+    expect(AuctionValidator.validateAuctionParameters(0.02, 10), true);
+  });
+
+  test('Test 4: basePrice appena sotto il massimo', () {
+    expect(AuctionValidator.validateAuctionParameters(999.99, 10), true);
+  });
+
+  test('Test 5: basePrice al massimo', () {
+    expect(AuctionValidator.validateAuctionParameters(1000, 10), true);
+  });
+
+  // Test per increaseThreshold (ultimi 4 test, mantenendo basePrice costante)
+  test('Test 6: increaseThreshold al minimo', () {
+    expect(AuctionValidator.validateAuctionParameters(100, 0.01), true);
+  });
+
+  test('Test 7: increaseThreshold appena sopra il minimo', () {
+    expect(AuctionValidator.validateAuctionParameters(100, 0.02), true);
+  });
+
+  test('Test 8: increaseThreshold appena sotto il massimo', () {
+    expect(AuctionValidator.validateAuctionParameters(100, 99.99), true);
+  });
+
+  test('Test 9: increaseThreshold al massimo', () {
+    expect(AuctionValidator.validateAuctionParameters(100, 100), true);
+  });
+});
+    \end{lstlisting}
