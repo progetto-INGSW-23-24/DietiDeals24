@@ -28,21 +28,28 @@ La comunicazione tra client e server avviene attraverso richieste asincrone, che
 
 \section{Design pattern utilizzati}
 
-\subsection{Model-View-Controller (MVC)}
-Il pattern Model-View-Controller (MVC) è stato scelto per strutturare l'applicazione in modo da separare le responsabilità e facilitare la manutenzione del codice.
+\subsection{Model-View-Controller (MVVM)}
+Il pattern Model-View-ViewModel (MVVM) è stato scelto per strutturare l'applicazione in modo da separare le responsabilità e facilitare la manutenzione del codice.
 
 \begin{itemize}
 	\item \textbf{Model}: Gestisce i dati dell'applicazione ed è responsabile della notifica alla View quando i dati cambiano. Questo permette alla View di aggiornarsi e riflettere le modifiche senza dover essere a conoscenza dei dettagli di come i dati sono gestiti.
 
 	\item \textbf{View}: Si occupa della presentazione e dell'interfaccia utente. Mostra i dati agli utenti e aggiorna la visualizzazione in risposta alle modifiche del Model.
 
-	\item \textbf{Controller}: Funziona da intermediario tra il Model e la View. Gestisce gli input degli utenti e aggiorna il Model e la View di conseguenza.
+	\item \textbf{ViewModel}: Funziona da intermediario tra il Model e la View. Gestisce gli input degli utenti e aggiorna il Model e la View di conseguenza.
 \end{itemize}
 
-\subsection{Data Access Object (DAO)}
-Il Data Access Object (DAO) è stato implementato per separare la logica di accesso ai dati dalla logica di business, semplificando la gestione e l'accesso ai dati.
+\subsection*{Vantaggi Principali}
+\begin{itemize}
+    \item \textbf{Separation of Concerns}: Il pattern MVVM promuove una chiara separazione tra la logica di business, la logica di presentazione e l'interfaccia utente, facilitando la manutenzione e l'espansione del codice.
+    
+    \item \textbf{Testabilità}: La logica dell'applicazione è centralizzata nel ViewModel, che può essere facilmente testato indipendentemente dalla View, rendendo più semplice lo sviluppo di test unitari.
+    
+    \item \textbf{Data Binding}: MVVM sfrutta il data binding bidirezionale, permettendo di aggiornare automaticamente l'interfaccia utente quando i dati nel ViewModel cambiano, migliorando l'esperienza utente e riducendo il codice boilerplate.
+    
+    \item \textbf{Modularità}: La separazione tra View e ViewModel consente di riutilizzare componenti e logica in diverse parti dell'applicazione senza duplicazione del codice.
+\end{itemize}
 
-\newpage
 
 \section{Analisi delle scelte tecnologiche utilizzate}
 \subsection{Client: Confronto con altre tecnologie}
@@ -77,6 +84,23 @@ Nel nostro caso, abbiamo impiegato RDS con un database PostgreSQL.
 \textit{Express.js} è un framework per applicazioni web Node.js, utilizzato per sviluppare la logica applicativa del nostro backend. Ci ha permesso di implementare un'API RESTful in modo rapido ed efficiente, gestendo le richieste tra il client e il server e interfacciandosi con il database ospitato su RDS.
 
 \pagebreak
+
+\section{Diagrammi UML di Design}
+Di seguito illustriamo i diagrammi UML di Design del sistema.
+\subsection{View}
+\includegraphics[width=\textwidth]{assets/uml_design/view.pdf}
+\subsection{Model}
+\includegraphics[width=\textwidth]{assets/uml_design/model.pdf}
+\subsection{ViewModel}
+\includegraphics[width=\textwidth]{assets/uml_design/view_model.pdf}
+\subsection{Routes}
+\includegraphics[width=\textwidth]{assets/uml_design/routes.pdf}
+\subsection{Services}
+\includegraphics[width=\textwidth]{assets/uml_design/services.pdf}
+
+
+
+
 \section{Diagrammi di Sequenza di Design}
 \subsection{Caso d'uso: Creazione Asta Silenziosa}
 Il seguente Sequence Diagram descrive il processo di creazione di un'Asta Silenziosa. \\
