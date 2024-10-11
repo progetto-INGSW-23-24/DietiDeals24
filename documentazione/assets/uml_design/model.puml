@@ -1,0 +1,114 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam class {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+set namespaceSeparator ::
+
+abstract class "model::AuctionModel" {
+  +AuctionType auctionType
+  +String id
+  +String imagePath
+  +String description
+  +List<int> categories
+  +DateTime createdAt
+  +List<CategoryModel> getCategories()
+}
+
+abstract class "model::AuctionOfferModel" {
+  +double amount
+}
+
+class "model::AuctionType" {
+  +int index
+  {static} +List<AuctionType> values
+  {static} +AuctionType english
+  {static} +AuctionType descending
+  {static} +AuctionType silent
+}
+
+class "model::CategoryModel" {
+  +int id
+  +String name
+  +CategoryModel copyWith()
+  +Map<String, dynamic> toJson()
+}
+
+class "model::DescendantAuctionModel" {
+  +double startingPrice
+  +double minimumPrice
+  +double decreaseAmount
+  +int decreaseTime
+  +Duration timeElapsed
+  +int decreasesOccurred
+  +int maxDecreases
+  +Duration timeToNextDecrease
+  +double currentPrice
+  +Map<String, dynamic> toJson()
+}
+
+"model::AuctionModel" <|-- "model::DescendantAuctionModel"
+
+class "model::DescendantAuctionOfferModel" {
+  +Map<String, dynamic> toJson()
+}
+
+"model::AuctionOfferModel" <|-- "model::DescendantAuctionOfferModel"
+
+class "model::EnglishAuctionModel" {
+  +double startingPrice
+  +double increaseThreshold
+  +int timer
+  +Duration countdownDuration
+  +Map<String, dynamic> toJson()
+}
+
+"model::AuctionModel" <|-- "model::EnglishAuctionModel"
+
+class "model::EnglishAuctionOfferModel" {
+  +Map<String, dynamic> toJson()
+}
+
+"model::AuctionOfferModel" <|-- "model::EnglishAuctionOfferModel"
+
+class "model::SilentAuctionModel" {
+  +DateTime expirationDateTime
+  +Duration countdownDuration
+  +Map<String, dynamic> toJson()
+}
+
+"model::AuctionModel" <|-- "model::SilentAuctionModel"
+
+class "model::SilentAuctionOfferModel" {
+  +Map<String, dynamic> toJson()
+}
+
+"model::AuctionOfferModel" <|-- "model::SilentAuctionOfferModel"
+
+class "model::UserModel" {
+  +String id
+  +String firstName
+  +String lastName
+  +String email
+  +String bio
+  +String webSiteLink
+  +String profileImagePath
+  +String? fcm
+  +List<String> socialLink
+  +String fullName
+  +Map<String, dynamic> toJson()
+  +UserModel copyWith()
+}
+
+class "model::UninitializedUser" {
+}
+
+"model::UserModel" <|-- "model::UninitializedUser"
+
+@enduml

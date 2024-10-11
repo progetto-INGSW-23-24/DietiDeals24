@@ -1,0 +1,59 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam class {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+set namespaceSeparator ::
+
+class "services::AuctionService" {
+  +String basePath
+  {static} +AuctionService instance
+  +dynamic createEnglishAuction()
+  +dynamic createSilentAuction()
+  +dynamic createDescendantAuction()
+  +dynamic getAuctions()
+  +dynamic makeOffer()
+  +dynamic getCreatedAuctions()
+  +dynamic getPurchasedAuctions()
+}
+
+class "services::AuthService" {
+  {static} +AuthService instance
+  +dynamic isSignedIn()
+  +dynamic getJWTRefreshToken()
+  +dynamic setJWTRefreshToken()
+  +dynamic getJWTAccessToken()
+  +dynamic setJWTAccessToken()
+  +dynamic signOut()
+  +dynamic signIn()
+  +dynamic signUp()
+  +dynamic refreshToken()
+}
+
+class "services::CategoryService" {
+  {static} +CategoryService instance
+  +dynamic getCategories()
+}
+
+class "services::HttpService" {
+  +String basePath
+  +String contentType
+  {static} +String host
+  +String apiUrl
+  +dynamic options
+  +dynamic getDio
+}
+
+class "services::UserService" {
+  +String basePath
+  {static} +UserService instance
+  +dynamic updateProfile()
+}
+
+@enduml

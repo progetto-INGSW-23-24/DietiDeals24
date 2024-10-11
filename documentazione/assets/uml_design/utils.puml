@@ -1,0 +1,46 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam class {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+set namespaceSeparator ::
+
+class "utils::AuctionUtils" {
+  +bool checkNewEnglishOfferAmount()
+}
+
+class "utils::Debouncer" {
+  +Duration delay
+  +void run()
+  +void cancel()
+}
+
+abstract class "utils::Dialogs" {
+  {static} +dynamic buttonStyle
+  {static} +dynamic confirm()
+  {static} +dynamic message()
+  {static} +dynamic wait()
+}
+
+class "utils::LocalStorage" {
+  {static} +LocalStorage instance
+  +dynamic setUserData()
+  +dynamic getUserData()
+  +dynamic setFCMToken()
+  +dynamic getFCMToken()
+  +dynamic removeFCMToken()
+  +dynamic setJWTRefreshToken()
+  +dynamic getJWTRefreshToken()
+  +dynamic removeJWTRefreshToken()
+  +dynamic setJWTAccessToken()
+  +dynamic getJWTAccessToken()
+  +dynamic removeJWTAccessToken()
+}
+
+@enduml

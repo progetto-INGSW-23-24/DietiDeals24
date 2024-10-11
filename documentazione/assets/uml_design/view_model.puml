@@ -1,0 +1,113 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam class {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+set namespaceSeparator ::
+
+class "view_model::AuctionCreatedHistoryViewModel" {
+  +bool loadingDone
+  +dynamic auctions
+  +dynamic List()
+  +dynamic ()
+  +dynamic >()
+  +dynamic List()
+  +dynamic ()
+  +dynamic >()
+  +dynamic refresh()
+  +dynamic loadAuctions()
+}
+
+class "view_model::AuctionDetailViewModel" {
+  +double? amount
+  +void reset()
+  +dynamic makeOffer()
+}
+
+class "view_model::AuctionPurchasedHistoryViewModel" {
+  +bool loadingDone
+  +dynamic offers
+  +dynamic List()
+  +dynamic ()
+  +dynamic >()
+  +dynamic List()
+  +dynamic ()
+  +dynamic >()
+  +dynamic refresh()
+  +dynamic loadAuctions()
+}
+
+class "view_model::CategoryViewModel" {
+  +List<CategoryModel> categories
+  +dynamic loadCategories()
+}
+
+class "view_model::CreateAuctionViewModel" {
+  +double? descendantStartingPrice
+  +double? descendantMinimumPrice
+  +double? descendantDecrementAmount
+  +int? descendantDecrementTimer
+  +double? englishStartingPrice
+  +double? englishIncrementThreshold
+  +int? englishTimer
+  +String? photoMimeType
+  +Uint8List? photo
+  +String? description
+  +DateTime? silentAuctionExpiration
+  +List<int> selectedCategories
+  +void addCategory()
+  +void removeCategory()
+  +void reset()
+  +dynamic publishAuction()
+  +bool checkPriceDifference()
+}
+
+class "view_model::EditProfileViewModel" {
+  +String? photoMimeType
+  +String? firstName
+  +String? lastName
+  +String? bio
+  +String? webSiteLink
+  +List<String>? socialLinks
+  +Uint8List? photo
+  +void addSocialLink()
+  +void removeSocialLink()
+  +dynamic saveEdit()
+}
+
+class "view_model::HomeViewModel" {
+  +List<dynamic> auctions
+  +bool isLoading
+  +String? searchedText
+  +dynamic selectedCategories
+  +dynamic List()
+  +dynamic ()
+  +dynamic >()
+  +void addCategory()
+  +void removeCategory()
+  +bool isCategorySelected()
+  +void clearSelectedCategories()
+  +dynamic getAuctions()
+}
+
+class "view_model::SignInViewModel" {
+  +dynamic signIn()
+  +dynamic signInWithGoogle()
+}
+
+class "view_model::SignUpViewModel" {
+  +dynamic signUp()
+}
+
+class "view_model::UserViewModel" {
+  +UserModel user
+  +dynamic updateUser()
+}
+
+@enduml@enduml

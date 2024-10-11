@@ -1,0 +1,105 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam class {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+set namespaceSeparator ::
+
+class "routes::AppRouter" {
+  +dynamic defaultRouteType
+  +List<dynamic> routes
+}
+
+class "routes::AuctionDetailRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::AuctionDetailRouteArgs" {
+  +dynamic key
+  +dynamic auction
+  +dynamic ()
+  +String toString()
+}
+
+class "routes::AuctionHistoryRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::CreateAuctionRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::CreateAuctionRouteArgs" {
+  +dynamic key
+  +dynamic auctionType
+  +String toString()
+}
+
+class "routes::EditProfileRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::HomeRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::ProfileRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::RootRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::SelectAuctionTypeRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::SignInRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::SignInRouteArgs" {
+  +dynamic key
+  +String toString()
+}
+
+class "routes::SignUpRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::SignUpRouteArgs" {
+  +dynamic key
+  +String toString()
+}
+
+class "routes::SplashRoute" {
+  {static} +String name
+  {static} +dynamic page
+}
+
+class "routes::AuthGuard" {
+  +dynamic onNavigation()
+}
+
+class "routes::NoAuthGuard" {
+  +dynamic onNavigation()
+}
+
+@enduml

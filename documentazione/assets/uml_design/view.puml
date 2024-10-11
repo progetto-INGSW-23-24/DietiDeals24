@@ -1,0 +1,70 @@
+@startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam class {
+  Shadowing false
+  BackgroundColor #E0E0E0
+  BorderColor #808080
+  FontColor #404040
+}
+
+set namespaceSeparator ::
+
+class "view::AuctionDetailView" {
+  +AuctionModel auction
+  +UserModel seller
+  +AuctionOfferModel? lastOffer
+  +dynamic build()
+}
+
+class "view::AuctionHistoryView" {
+  +dynamic build()
+}
+
+class "view::CreateAuctionView" {
+  +AuctionType auctionType
+  +dynamic labelStyle
+  +dynamic build()
+}
+
+class "view::EditProfileView" {
+  +dynamic build()
+  +void saveEdit()
+}
+
+class "view::HomeView" {
+  +dynamic build()
+}
+
+class "view::ProfileView" {
+  +dynamic build()
+  +void goToEditProfile()
+}
+
+class "view::RootView" {
+  +dynamic build()
+}
+
+class "view::SelectAuctionTypeView" {
+  +dynamic build()
+}
+
+class "view::SignInView" {
+  +SignInViewModel viewModel
+  +dynamic build()
+  +void submit()
+}
+
+class "view::SignUpView" {
+  +SignUpViewModel viewModel
+  +dynamic build()
+  +bool checkEmailAndPassword()
+  +void submit()
+}
+
+class "view::SplashView" {
+  +dynamic createState()
+}
+
+@enduml
