@@ -1,0 +1,40 @@
+@startuml
+left to right direction
+
+actor U as "Utente Loggato"
+
+
+usecase A as "Personalizza Profilo" 
+usecase B as "Ricerca Asta per parola chiave"
+usecase C as "Filtra Aste per categoria"
+usecase D as "Visualizza dettagli di un'asta"
+usecase E as "Visualizza il profilo di un venditore"
+usecase F as "Visualizza storico aste create"
+usecase G as "Crea asta al ribasso"
+usecase H as "Crea asta all'inglese"
+usecase I as "Crea asta Silenziosa"
+usecase L as "Piazza offerta asta all'inglese" 
+usecase M as "Piazza offerta asta Silenziosa" 
+usecase N as "Piazza offerta asta al Ribasso"
+usecase O as "Visualizza storico aste acquistate"
+usecase V as "Crea Asta"
+
+
+U --> A 
+U --> B 
+U --> C 
+U --> D 
+D <-- L: <<include>> 
+D <-- M: <<include>> 
+D <-- N: <<include>> 
+D <-- E: <<include>>
+
+U --> V 
+V <-- G: <<include>>  
+V <-- H: <<include>>
+V <-- I: <<include>>
+
+U --> O 
+U --> F
+
+@enduml
