@@ -1,4 +1,21 @@
 @startuml
+skinparam shadowing false
+skinparam backgroundColor #F9F9F9
+skinparam ArrowColor black
+skinparam usecase {
+  Shadowing false
+  BackgroundColor #D0D0D0
+  BorderColor #808080
+  FontColor #404040
+}
+
+skinparam actor {
+  Shadowing false
+  BackgroundColor #D0D0D0
+  BorderColor #808080
+  FontColor #404040
+}
+
 left to right direction
 
 actor U as "Utente Loggato"
@@ -20,21 +37,21 @@ usecase O as "Visualizza storico aste acquistate"
 usecase V as "Crea Asta"
 
 
-U --> A 
-U --> B 
-U --> C 
-U --> D 
+U -- A 
+U -- B 
+U -- C 
+U -- D 
 D <-- L: <<include>> 
 D <-- M: <<include>> 
 D <-- N: <<include>> 
 D <-- E: <<include>>
 
-U --> V 
+U -- V 
 V <-- G: <<include>>  
 V <-- H: <<include>>
 V <-- I: <<include>>
 
-U --> O 
-U --> F
+U -- O 
+U -- F
 
 @enduml
