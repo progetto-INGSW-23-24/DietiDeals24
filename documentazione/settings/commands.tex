@@ -4,22 +4,16 @@
 
 \setlength{\headheight}{14.5pt}
 
-\let\oldchapter\chapter
-\renewcommand{\chapter}[1]{
-    \newpage
-    \begingroup%
-    \let\clearpage\relax% Stop LaTeX from going to a new page
-    % \vspace*{\fill}%
-    \oldchapter{#1}
-    % \vspace*{\fill}%
-    \endgroup
-    \thispagestyle{empty}
-    % \newpage
-}
-% Comando personalizzato per stampare il glossario con il vecchio comportamento di \chapter
-\newcommand{\printglossarywithchapter}{
-    {\let\clearpage\relax\let\chapter\oldchapter\vspace{-15em}\chapter{Glossario}\printglossary}
-}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries\centering} % Formattazione del titolo del capitolo
+  {\parbox{\textwidth}{\raggedright #1}} % Il numero del capitolo
+  {0pt} % Distanza tra il numero del capitolo e il titolo
+  {\huge} % Formattazione del titolo del capitolo
+
+% % Comando personalizzato per stampare il glossario con il vecchio comportamento di \chapter
+% \newcommand{\printglossarywithchapter}{
+%     {\let\clearpage\relax\let\chapter\oldchapter\vspace{-15em}\chapter{Glossario}\printglossary}
+% }
 
 
 % \let\oldsection\section
